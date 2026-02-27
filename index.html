@@ -31,59 +31,6 @@
             overflow-x: hidden;
         }
 
-        /* PARTICLES CANVAS */
-        #particlesCanvas {
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* TYPEWRITER */
-        .typewriter-target {
-            position: relative;
-        }
-
-        .typewriter-cursor {
-            display: inline-block;
-            width: 3px;
-            height: 0.9em;
-            background: var(--gold);
-            margin-left: 4px;
-            vertical-align: baseline;
-            animation: cursorBlink 0.7s infinite;
-        }
-
-        .typewriter-cursor.done {
-            animation: cursorFadeOut 0.5s 1.5s forwards, cursorBlink 0.7s infinite;
-        }
-
-        @keyframes cursorBlink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        @keyframes cursorFadeOut {
-            to { opacity: 0; width: 0; margin: 0; }
-        }
-
-        /* 3D TILT CARDS */
-        .tilt-card {
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
-
-        .tilt-card .why-icon,
-        .tilt-card .plan-name,
-        .tilt-card .plan-featured-tag {
-            transform: translateZ(30px);
-        }
-
-        .tilt-card h3,
-        .tilt-card .plan-tier {
-            transform: translateZ(20px);
-        }
-
         /* LANGUAGE SWITCHER */
         .lang-switcher {
             position: fixed;
@@ -495,14 +442,11 @@
 
         .why-card {
             padding: 2.5rem;
-            border: 1px solid rgba(209, 207, 201, 0.6);
-            border-radius: 12px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
         }
 
         .why-card::before {
@@ -518,9 +462,8 @@
 
         .why-card:hover {
             border-color: var(--gold);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(11, 29, 58, 0.1), 0 0 40px rgba(200, 164, 94, 0.06);
-            background: rgba(255, 255, 255, 0.8);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(11, 29, 58, 0.08);
         }
 
         .why-card:hover::before { transform: scaleX(1); }
@@ -731,9 +674,7 @@
         }
 
         .plan-card {
-            background: rgba(18, 41, 77, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            background: var(--navy-light);
             border: 1px solid rgba(255,255,255,0.08);
             border-radius: 12px;
             padding: 2.5rem;
@@ -743,8 +684,7 @@
 
         .plan-card:hover {
             border-color: rgba(200, 164, 94, 0.3);
-            transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2), 0 0 40px rgba(200, 164, 94, 0.05);
+            transform: translateY(-4px);
         }
 
         .plan-card.featured {
@@ -1185,11 +1125,10 @@
 
 <!-- HERO -->
 <section class="hero">
-    <canvas id="particlesCanvas"></canvas>
     <div class="hero-grid-bg"></div>
-    <div class="hero-content" id="heroContent">
+    <div class="hero-content">
         <div class="hero-badge" data-i18n="hero_badge">Outsourcing Estratégico de Comercio Exterior</div>
-        <h1 class="typewriter-target" data-i18n="hero_title" data-i18n-html="true">Su departamento de comercio exterior, <em>sin los costos de uno.</em></h1>
+        <h1 data-i18n="hero_title" data-i18n-html="true">Su departamento de comercio exterior, <em>sin los costos de uno.</em></h1>
         <p class="hero-sub" data-i18n="hero_sub">Dirección estratégica senior en importaciones, exportaciones y logística internacional. Resultados de un director en planta, con la flexibilidad y eficiencia del outsourcing.</p>
         <div class="hero-buttons">
             <a href="#planes" class="btn-primary" data-i18n="hero_btn1">Ver Planes Estratégicos →</a>
@@ -1197,15 +1136,15 @@
         </div>
         <div class="hero-stats">
             <div class="hero-stat">
-                <h3 data-counter="100" data-suffix="%">0%</h3>
+                <h3>100%</h3>
                 <p data-i18n="stat1">Enfoque estratégico</p>
             </div>
             <div class="hero-stat">
-                <h3 data-counter="0">0</h3>
+                <h3>0</h3>
                 <p data-i18n="stat2">Cargas laborales</p>
             </div>
             <div class="hero-stat">
-                <h3 data-counter="3">0</h3>
+                <h3>3</h3>
                 <p data-i18n="stat3">Planes a su medida</p>
             </div>
         </div>
@@ -1244,42 +1183,42 @@
             <p class="section-subtitle" data-i18n="why_subtitle">Cada error en una importación, exportación o negociación internacional le cuesta dinero. Nosotros nos aseguramos de que eso no suceda.</p>
         </div>
         <div class="why-grid">
-            <div class="why-card reveal tilt-card">
+            <div class="why-card reveal">
                 <div class="why-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
                 </div>
                 <h3 data-i18n="why1_title">Dirección Estratégica Senior</h3>
                 <p data-i18n="why1_desc">Acceda a un Director de Comercio Exterior con experiencia comprobada, sin asumir los costos de una contratación fija. Estrategia de alto nivel desde el primer día.</p>
             </div>
-            <div class="why-card reveal tilt-card">
+            <div class="why-card reveal">
                 <div class="why-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                 </div>
                 <h3 data-i18n="why2_title">Reducción de Costos Fijos</h3>
                 <p data-i18n="why2_desc">Elimine nómina, cargas laborales y gastos administrativos. Pague únicamente por la dirección estratégica que su operación internacional necesita.</p>
             </div>
-            <div class="why-card reveal tilt-card">
+            <div class="why-card reveal">
                 <div class="why-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
                 </div>
                 <h3 data-i18n="why3_title">Mitigación de Riesgos</h3>
                 <p data-i18n="why3_desc">Identifique y neutralice riesgos aduaneros, cambiarios y contractuales antes de que se conviertan en pérdidas. Prevención sobre corrección.</p>
             </div>
-            <div class="why-card reveal tilt-card">
+            <div class="why-card reveal">
                 <div class="why-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
                 </div>
                 <h3 data-i18n="why4_title">Optimización Logística</h3>
                 <p data-i18n="why4_desc">Cada dólar cuenta en comercio exterior. Optimizamos sus rutas, tiempos, proveedores y costos logísticos para maximizar su rentabilidad internacional.</p>
             </div>
-            <div class="why-card reveal tilt-card">
+            <div class="why-card reveal">
                 <div class="why-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
                 </div>
                 <h3 data-i18n="why5_title">Soporte a Alta Gerencia</h3>
                 <p data-i18n="why5_desc">Trabajamos directamente con su gerencia general, financiera y junta directiva. Información clara, reportes ejecutivos y KPIs que facilitan la toma de decisiones.</p>
             </div>
-            <div class="why-card reveal tilt-card">
+            <div class="why-card reveal">
                 <div class="why-icon">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                 </div>
@@ -1302,15 +1241,15 @@
                 <p class="experience-text" data-i18n="exp_text2">Esa experiencia operativa y estratégica de primer nivel es exactamente lo que ponemos al servicio de su empresa. No somos consultores teóricos: somos profesionales que han tomado decisiones reales en una de las operaciones más complejas del comercio global.</p>
                 <div class="experience-stats-row">
                     <div class="exp-stat">
-                        <h4 data-counter="5" data-prefix="Top ">Top 5</h4>
+                        <h4>Top 5</h4>
                         <p data-i18n="exp_s1">Naviera global</p>
                     </div>
                     <div class="exp-stat">
-                        <h4 data-counter="140" data-suffix="+">0+</h4>
+                        <h4>140+</h4>
                         <p data-i18n="exp_s2">Países de operación</p>
                     </div>
                     <div class="exp-stat">
-                        <h4 data-counter="175" data-suffix="+">0+</h4>
+                        <h4>175+</h4>
                         <p data-i18n="exp_s3">Años de historia</p>
                     </div>
                 </div>
@@ -1360,7 +1299,7 @@
         </div>
         <div class="plans-grid">
             <!-- BASIC -->
-            <div class="plan-card reveal tilt-card">
+            <div class="plan-card reveal">
                 <span class="plan-tier" data-i18n="plan_tier">Plan Estratégico</span>
                 <h3 class="plan-name">Basic</h3>
                 <p class="plan-hours" data-i18n="basic_hours">10 horas mensuales de acompañamiento</p>
@@ -1375,7 +1314,7 @@
                 <p class="plan-ideal" data-i18n="basic_ideal">Ideal para: PYMEs con operaciones internacionales puntuales</p>
             </div>
             <!-- PRO -->
-            <div class="plan-card featured reveal tilt-card">
+            <div class="plan-card featured reveal">
                 <span class="plan-featured-tag" data-i18n="featured_tag">Más Popular</span>
                 <span class="plan-tier" data-i18n="plan_tier">Plan Estratégico</span>
                 <h3 class="plan-name">Pro</h3>
@@ -1392,7 +1331,7 @@
                 <p class="plan-ideal" data-i18n="pro_ideal">Ideal para: Empresas con operaciones regulares de comercio exterior</p>
             </div>
             <!-- EXECUTIVE -->
-            <div class="plan-card reveal tilt-card">
+            <div class="plan-card reveal">
                 <span class="plan-tier" data-i18n="plan_tier">Plan Estratégico</span>
                 <h3 class="plan-name">Executive</h3>
                 <p class="plan-hours" data-i18n="exec_hours">40 horas mensuales de acompañamiento</p>
@@ -1538,269 +1477,6 @@
 </footer>
 
 <script>
-// ====================
-// PARTICLES SYSTEM
-// ====================
-const canvas = document.getElementById('particlesCanvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-let mouse = { x: null, y: null };
-
-function resizeCanvas() {
-    const hero = document.querySelector('.hero');
-    canvas.width = hero.offsetWidth;
-    canvas.height = hero.offsetHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-class Particle {
-    constructor() {
-        this.reset();
-    }
-    reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 0.5;
-        this.speedX = (Math.random() - 0.5) * 0.4;
-        this.speedY = (Math.random() - 0.5) * 0.4;
-        this.opacity = Math.random() * 0.5 + 0.1;
-    }
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-    }
-    draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(200, 164, 94, ${this.opacity})`;
-        ctx.fill();
-    }
-}
-
-function initParticles() {
-    particles = [];
-    const count = Math.min(Math.floor((canvas.width * canvas.height) / 12000), 80);
-    for (let i = 0; i < count; i++) {
-        particles.push(new Particle());
-    }
-}
-initParticles();
-
-function drawLines() {
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const dx = particles[i].x - particles[j].x;
-            const dy = particles[i].y - particles[j].y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 150) {
-                const opacity = (1 - dist / 150) * 0.15;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(200, 164, 94, ${opacity})`;
-                ctx.lineWidth = 0.5;
-                ctx.stroke();
-            }
-        }
-        // Mouse interaction lines
-        if (mouse.x !== null) {
-            const dx = particles[i].x - mouse.x;
-            const dy = particles[i].y - mouse.y;
-            const dist = Math.sqrt(dx * dx + dy * dy);
-            if (dist < 200) {
-                const opacity = (1 - dist / 200) * 0.3;
-                ctx.beginPath();
-                ctx.moveTo(particles[i].x, particles[i].y);
-                ctx.lineTo(mouse.x, mouse.y);
-                ctx.strokeStyle = `rgba(200, 164, 94, ${opacity})`;
-                ctx.lineWidth = 0.8;
-                ctx.stroke();
-            }
-        }
-    }
-}
-
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => { p.update(); p.draw(); });
-    drawLines();
-    requestAnimationFrame(animateParticles);
-}
-animateParticles();
-
-document.querySelector('.hero').addEventListener('mousemove', (e) => {
-    const rect = canvas.getBoundingClientRect();
-    mouse.x = e.clientX - rect.left;
-    mouse.y = e.clientY - rect.top;
-});
-document.querySelector('.hero').addEventListener('mouseleave', () => {
-    mouse.x = null;
-    mouse.y = null;
-});
-
-// ====================
-// PARALLAX HERO
-// ====================
-const heroContent = document.getElementById('heroContent');
-window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY;
-    const heroHeight = document.querySelector('.hero').offsetHeight;
-    if (scrollY < heroHeight) {
-        const parallaxOffset = scrollY * 0.35;
-        const opacity = 1 - (scrollY / heroHeight) * 0.8;
-        heroContent.style.transform = `translateY(${parallaxOffset}px)`;
-        heroContent.style.opacity = opacity;
-    }
-});
-
-// ====================
-// TYPEWRITER EFFECT
-// ====================
-function typeWriter() {
-    const target = document.querySelector('.typewriter-target');
-    if (!target) return;
-
-    const lang = currentLang || 'es';
-    const fullHTML = translations[lang].hero_title;
-
-    // Parse the text removing HTML tags for typing, keep track of tag positions
-    const tempDiv = document.createElement('div');
-    tempDiv.innerHTML = fullHTML;
-    const fullText = tempDiv.textContent;
-
-    target.innerHTML = '<span class="typewriter-cursor"></span>';
-    let i = 0;
-
-    function type() {
-        if (i < fullText.length) {
-            // Build the display: typed text so far, with HTML formatting applied
-            const typed = fullText.substring(0, i + 1);
-            // Re-wrap the em portion
-            let display = typed;
-            const emStart = fullText.indexOf(tempDiv.querySelector('em')?.textContent || '___NOMATCH___');
-            if (emStart > -1) {
-                const emText = tempDiv.querySelector('em').textContent;
-                const emEnd = emStart + emText.length;
-                if (i >= emStart) {
-                    const beforeEm = fullText.substring(0, emStart);
-                    const insideEm = fullText.substring(emStart, Math.min(i + 1, emEnd));
-                    const afterEm = i >= emEnd ? fullText.substring(emEnd, i + 1) : '';
-                    display = beforeEm + '<em>' + insideEm + '</em>' + afterEm;
-                }
-            }
-            target.innerHTML = display + '<span class="typewriter-cursor"></span>';
-            i++;
-            setTimeout(type, 35 + Math.random() * 25);
-        } else {
-            // Typing done - show full HTML
-            target.innerHTML = fullHTML + '<span class="typewriter-cursor done"></span>';
-        }
-    }
-
-    // Start after a brief delay
-    setTimeout(type, 800);
-}
-
-// ====================
-// ANIMATED COUNTERS
-// ====================
-function animateCounters() {
-    document.querySelectorAll('[data-counter]').forEach(el => {
-        if (el.dataset.counted) return;
-
-        const target = parseInt(el.dataset.counter);
-        const prefix = el.dataset.prefix || '';
-        const suffix = el.dataset.suffix || '';
-        const duration = 2000;
-        const start = performance.now();
-
-        el.dataset.counted = 'true';
-
-        if (target === 0) {
-            el.textContent = prefix + '0' + suffix;
-            return;
-        }
-
-        function step(now) {
-            const elapsed = now - start;
-            const progress = Math.min(elapsed / duration, 1);
-            // Ease out cubic
-            const eased = 1 - Math.pow(1 - progress, 3);
-            const current = Math.round(target * eased);
-            el.textContent = prefix + current + suffix;
-            if (progress < 1) requestAnimationFrame(step);
-        }
-        requestAnimationFrame(step);
-    });
-}
-
-// Observer for counters
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            // Small delay for visual impact
-            setTimeout(() => {
-                entry.target.querySelectorAll('[data-counter]').forEach(el => {
-                    if (!el.dataset.counted) animateCounters();
-                });
-            }, 300);
-            counterObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.3 });
-
-document.querySelectorAll('.hero-stats, .experience-stats-row').forEach(el => {
-    counterObserver.observe(el);
-});
-
-// ====================
-// 3D TILT CARDS
-// ====================
-function initTiltCards() {
-    const cards = document.querySelectorAll('.tilt-card');
-    const isMobile = window.matchMedia('(max-width: 768px)').matches;
-    if (isMobile) return;
-
-    cards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -8;
-            const rotateY = ((x - centerX) / centerX) * 8;
-
-            card.style.transform = `perspective(800px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-
-            // Glare effect
-            const glareX = (x / rect.width) * 100;
-            const glareY = (y / rect.height) * 100;
-            card.style.background = card.closest('.services')
-                ? `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(200,164,94,0.08), rgba(18,41,77,0.6))`
-                : `radial-gradient(circle at ${glareX}% ${glareY}%, rgba(200,164,94,0.06), rgba(255,255,255,0.6))`;
-        });
-
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(800px) rotateX(0) rotateY(0) translateZ(0)';
-            card.style.transition = 'transform 0.5s ease, background 0.5s ease';
-            card.style.background = card.closest('.services')
-                ? 'rgba(18, 41, 77, 0.6)'
-                : 'rgba(255, 255, 255, 0.6)';
-            setTimeout(() => { card.style.transition = ''; }, 500);
-        });
-
-        card.addEventListener('mouseenter', () => {
-            card.style.transition = '';
-        });
-    });
-}
-initTiltCards();
-
 // ====================
 // i18n TRANSLATIONS
 // ====================
@@ -2141,15 +1817,6 @@ function switchLang(lang) {
         });
 
         document.body.classList.remove('lang-switching');
-
-        // Re-trigger typewriter for hero title
-        typeWriter();
-
-        // Reset counters so they re-animate if visible
-        document.querySelectorAll('[data-counter]').forEach(el => {
-            delete el.dataset.counted;
-        });
-        animateCounters();
     }, 250);
 }
 
@@ -2164,11 +1831,6 @@ window.addEventListener('scroll', () => {
         nav.classList.remove('scrolled');
         switcher.classList.remove('scrolled');
     }
-});
-
-// Init typewriter on page load
-window.addEventListener('load', () => {
-    typeWriter();
 });
 
 // Scroll reveal
