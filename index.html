@@ -1,0 +1,1861 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Trade JEG S.A.S. | Outsourcing Estratégico de Comercio Exterior</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0B1D3A;
+            --navy-light: #12294D;
+            --gold: #C8A45E;
+            --gold-light: #E0C884;
+            --gold-pale: #F5EDD8;
+            --white: #FAFAF8;
+            --gray-100: #F2F1EE;
+            --gray-300: #D1CFC9;
+            --gray-500: #8A8780;
+            --gray-700: #4A4840;
+            --teal: #1A6B5A;
+            --teal-light: #2A9B80;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--gray-700);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* LANGUAGE SWITCHER */
+        .lang-switcher {
+            position: fixed;
+            top: 1.1rem;
+            right: 6rem;
+            z-index: 1100;
+            display: flex;
+            align-items: center;
+            background: rgba(11, 29, 58, 0.7);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 50px;
+            padding: 4px;
+            gap: 4px;
+            transition: all 0.4s ease;
+        }
+
+        nav.scrolled ~ .lang-switcher,
+        .lang-switcher.scrolled {
+            background: rgba(11, 29, 58, 0.95);
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 18px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            background: transparent;
+            color: rgba(255,255,255,0.45);
+            position: relative;
+        }
+
+        .lang-btn.active {
+            background: rgba(255,255,255,0.12);
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+
+        .lang-btn:hover:not(.active) {
+            color: rgba(255,255,255,0.7);
+        }
+
+        .lang-flag {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .lang-flag svg {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        nav.scrolled {
+            background: rgba(11, 29, 58, 0.97);
+            backdrop-filter: blur(12px);
+            padding: 0.7rem 2rem;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.15);
+        }
+
+        .nav-logo {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-logo span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            font-size: 0.86rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--gold); }
+
+        .nav-cta {
+            background: var(--gold) !important;
+            color: var(--navy) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600 !important;
+            transition: all 0.3s !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--gold-light) !important;
+            transform: translateY(-1px);
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 26px;
+            height: 2px;
+            background: #fff;
+            transition: 0.3s;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(ellipse, rgba(200, 164, 94, 0.07) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .hero-grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(200,164,94,0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200,164,94,0.04) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(200, 164, 94, 0.1);
+            border: 1px solid rgba(200, 164, 94, 0.25);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        .hero h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 5.5vw, 4.2rem);
+            color: #fff;
+            line-height: 1.15;
+            max-width: 800px;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease 0.15s both;
+        }
+
+        .hero h1 em {
+            color: var(--gold);
+            font-style: italic;
+        }
+
+        .hero-sub {
+            font-size: 1.15rem;
+            color: rgba(255,255,255,0.6);
+            max-width: 600px;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease 0.3s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.45s both;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--gold-light);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 164, 94, 0.3);
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: transparent;
+            color: #fff;
+            padding: 1rem 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 4px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            animation: fadeInUp 0.8s ease 0.6s both;
+        }
+
+        .hero-stat h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+        }
+
+        .hero-stat p {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 0.3rem;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* TRUST BAR */
+        .trust-bar {
+            background: var(--gray-100);
+            padding: 2.5rem 2rem;
+            text-align: center;
+        }
+
+        .trust-bar p {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        .trust-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3rem;
+            margin-top: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+        }
+
+        .trust-item svg { width: 20px; height: 20px; }
+
+        /* SECTIONS COMMON */
+        section { padding: 6rem 2rem; }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            color: var(--navy);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--gray-500);
+            max-width: 600px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* WHY US */
+        .why-us { background: var(--white); }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .why-card {
+            padding: 2.5rem;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .why-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(11, 29, 58, 0.08);
+        }
+
+        .why-card:hover::before { transform: scaleX(1); }
+
+        .why-icon {
+            width: 48px; height: 48px;
+            background: rgba(200, 164, 94, 0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--gold);
+        }
+
+        .why-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.25rem;
+            color: var(--navy);
+            margin-bottom: 0.8rem;
+        }
+
+        .why-card p {
+            font-size: 0.92rem;
+            line-height: 1.7;
+            color: var(--gray-500);
+        }
+
+        /* TRUST / EXPERIENCE */
+        .experience-section {
+            background: var(--navy);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .experience-section::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .experience-content .section-title {
+            color: #fff;
+        }
+
+        .experience-quote {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.35rem;
+            color: var(--gold);
+            font-style: italic;
+            line-height: 1.5;
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--gold);
+        }
+
+        .experience-text {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.6);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .experience-stats-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .exp-stat {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 10px;
+            transition: all 0.3s;
+        }
+
+        .exp-stat:hover {
+            border-color: rgba(200, 164, 94, 0.25);
+            background: rgba(200, 164, 94, 0.04);
+        }
+
+        .exp-stat h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.6rem;
+            color: var(--gold);
+            margin-bottom: 0.3rem;
+        }
+
+        .exp-stat p {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1.4;
+        }
+
+        .experience-visual {
+            position: relative;
+        }
+
+        .exp-card-stack {
+            position: relative;
+            min-height: 420px;
+        }
+
+        .exp-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+            transition: all 0.4s;
+        }
+
+        .exp-card:hover {
+            border-color: rgba(200, 164, 94, 0.25);
+            transform: translateX(6px);
+        }
+
+        .exp-card-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(200, 164, 94, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .exp-card h4 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-card p {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.5);
+            line-height: 1.6;
+        }
+
+        .exp-badge-row {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .exp-badge {
+            background: rgba(200, 164, 94, 0.08);
+            border: 1px solid rgba(200, 164, 94, 0.2);
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.4rem 0.9rem;
+            border-radius: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .experience-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .experience-stats-row { grid-template-columns: 1fr 1fr; }
+            .exp-card-stack { min-height: auto; }
+        }
+
+        /* PLANS */
+        .services {
+            background: var(--navy);
+            position: relative;
+        }
+
+        .services .section-title { color: #fff; }
+        .services .section-subtitle { color: rgba(255,255,255,0.5); }
+
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3.5rem;
+        }
+
+        .plan-card {
+            background: var(--navy-light);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 12px;
+            padding: 2.5rem;
+            position: relative;
+            transition: all 0.4s;
+        }
+
+        .plan-card:hover {
+            border-color: rgba(200, 164, 94, 0.3);
+            transform: translateY(-4px);
+        }
+
+        .plan-card.featured {
+            border-color: var(--gold);
+            background: linear-gradient(135deg, var(--navy-light), rgba(200, 164, 94, 0.08));
+        }
+
+        .plan-featured-tag {
+            position: absolute;
+            top: -1px; right: 2rem;
+            background: var(--gold);
+            color: var(--navy);
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 0.4rem 1rem;
+            border-radius: 0 0 6px 6px;
+        }
+
+        .plan-tier {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .plan-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 0.5rem 0;
+        }
+
+        .plan-hours {
+            font-size: 0.88rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .plan-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .plan-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+
+        .plan-features li svg {
+            flex-shrink: 0;
+            margin-top: 3px;
+            color: var(--gold);
+        }
+
+        .plan-cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 6px;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            background: transparent;
+            font-family: 'Outfit', sans-serif;
+            cursor: pointer;
+        }
+
+        .plan-cta:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            background: rgba(200, 164, 94, 0.05);
+        }
+
+        .plan-card.featured .plan-cta {
+            background: var(--gold);
+            border-color: var(--gold);
+            color: var(--navy);
+        }
+
+        .plan-card.featured .plan-cta:hover { background: var(--gold-light); }
+
+        .plan-ideal {
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.35);
+            font-style: italic;
+            text-align: center;
+        }
+
+        /* PROJECTS */
+        .projects { background: var(--gray-100); }
+
+        .projects-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3.5rem;
+        }
+
+        .project-block {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--gray-300);
+        }
+
+        .project-block h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.4rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .project-block > p {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .project-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .project-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.8rem;
+            font-size: 0.92rem;
+            color: var(--gray-700);
+            line-height: 1.5;
+        }
+
+        .project-list li .p-icon {
+            flex-shrink: 0;
+            width: 28px; height: 28px;
+            background: rgba(200, 164, 94, 0.1);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            margin-top: 1px;
+        }
+
+
+
+        /* HOW IT WORKS */
+        .how-it-works { background: var(--white); }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3.5rem;
+            position: relative;
+        }
+
+        .steps-grid::before {
+            content: '';
+            position: absolute;
+            top: 35px;
+            left: 10%; right: 10%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--gold), rgba(200,164,94,0.2));
+            z-index: 0;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .step-number {
+            width: 70px; height: 70px;
+            background: var(--navy);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--gold);
+        }
+
+        .step h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .step p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            line-height: 1.6;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: var(--navy);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(200, 164, 94, 0.08), transparent 60%);
+        }
+
+        .cta-section .section-container { position: relative; z-index: 2; }
+
+        .cta-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .cta-section h2 em { color: var(--gold); font-style: italic; }
+
+        .cta-section p {
+            color: rgba(255,255,255,0.55);
+            font-size: 1.05rem;
+            max-width: 550px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #070F1D;
+            padding: 4rem 2rem 2rem;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .footer-brand .nav-logo {
+            font-size: 1.3rem;
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 1.2rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .footer-col a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col a:hover { color: var(--gold); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.4);
+            text-decoration: none;
+        }
+
+        /* TRANSITIONS FOR LANG SWITCH */
+        [data-i18n] {
+            transition: opacity 0.25s ease;
+        }
+
+        .lang-switching [data-i18n] {
+            opacity: 0;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .steps-grid { grid-template-columns: repeat(2, 1fr); }
+            .steps-grid::before { display: none; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .lang-switcher { right: 4.5rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .mobile-toggle { display: flex; }
+
+            .nav-links.open {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                inset: 0;
+                background: var(--navy);
+                justify-content: center;
+                align-items: center;
+                gap: 2rem;
+                z-index: 999;
+            }
+
+            .nav-links.open a { font-size: 1.2rem; }
+
+            .hero-stats { flex-direction: column; gap: 1.5rem; }
+            .projects-flex { grid-template-columns: 1fr; }
+            .plans-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+
+            .lang-switcher {
+                right: 4rem;
+                top: 1rem;
+            }
+
+            .lang-btn {
+                padding: 6px 12px;
+                font-size: 0.75rem;
+            }
+
+            .lang-flag { width: 18px; height: 18px; }
+            .lang-flag svg { width: 18px; height: 18px; }
+        }
+
+        /* SCROLL ANIMATIONS */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+<!-- LANGUAGE SWITCHER -->
+<div class="lang-switcher" id="langSwitcher">
+    <button class="lang-btn active" id="btnES" onclick="switchLang('es')">
+        <span class="lang-flag">
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <rect width="36" height="36" rx="18" fill="#C60B1E"/>
+                <rect y="9" width="36" height="18" fill="#FFC400"/>
+            </svg>
+        </span>
+        ES
+    </button>
+    <button class="lang-btn" id="btnEN" onclick="switchLang('en')">
+        <span class="lang-flag">
+            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                <rect width="36" height="36" rx="18" fill="#B22234"/>
+                <rect y="3" width="36" height="2.77" fill="#fff"/>
+                <rect y="8.54" width="36" height="2.77" fill="#fff"/>
+                <rect y="14.08" width="36" height="2.77" fill="#fff"/>
+                <rect y="19.62" width="36" height="2.77" fill="#fff"/>
+                <rect y="25.15" width="36" height="2.77" fill="#fff"/>
+                <rect y="30.69" width="36" height="2.77" fill="#fff"/>
+                <rect width="14.4" height="19.38" fill="#3C3B6E"/>
+            </svg>
+        </span>
+        EN
+    </button>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+    <a href="#" class="nav-logo">Global Trade <span>JEG</span></a>
+    <ul class="nav-links" id="navLinks">
+        <li><a href="#servicios" data-i18n="nav_services">Servicios</a></li>
+        <li><a href="#confianza" data-i18n="nav_trust">Confianza</a></li>
+        <li><a href="#planes" data-i18n="nav_plans">Planes</a></li>
+        <li><a href="#proyectos" data-i18n="nav_projects">Proyectos</a></li>
+        <li><a href="#capacitaciones" data-i18n="nav_training">Capacitaciones</a></li>
+        <li><a href="#proceso" data-i18n="nav_process">Proceso</a></li>
+        <li><a href="#contacto" class="nav-cta" data-i18n="nav_cta">Agendar Consulta</a></li>
+    </ul>
+    <div class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-content">
+        <div class="hero-badge" data-i18n="hero_badge">Outsourcing Estratégico de Comercio Exterior</div>
+        <h1 data-i18n="hero_title" data-i18n-html="true">Su departamento de comercio exterior, <em>sin los costos de uno.</em></h1>
+        <p class="hero-sub" data-i18n="hero_sub">Dirección estratégica senior en importaciones, exportaciones y logística internacional. Resultados de un director en planta, con la flexibilidad y eficiencia del outsourcing.</p>
+        <div class="hero-buttons">
+            <a href="#planes" class="btn-primary" data-i18n="hero_btn1">Ver Planes Estratégicos →</a>
+            <a href="#contacto" class="btn-secondary" data-i18n="hero_btn2">Solicitar Diagnóstico Gratuito</a>
+        </div>
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <h3>100%</h3>
+                <p data-i18n="stat1">Enfoque estratégico</p>
+            </div>
+            <div class="hero-stat">
+                <h3>0</h3>
+                <p data-i18n="stat2">Cargas laborales</p>
+            </div>
+            <div class="hero-stat">
+                <h3>3</h3>
+                <p data-i18n="stat3">Planes a su medida</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+    <p data-i18n="trust_title">Respaldados por experiencia en</p>
+    <div class="trust-icons">
+        <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span data-i18n="trust1">Cumplimiento Normativo</span>
+        </span>
+        <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            <span data-i18n="trust2">Operaciones Internacionales</span>
+        </span>
+        <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            <span data-i18n="trust3">Optimización de Costos</span>
+        </span>
+        <span class="trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            <span data-i18n="trust4">Confidencialidad Total</span>
+        </span>
+    </div>
+</div>
+
+<!-- WHY US -->
+<section class="why-us" id="servicios">
+    <div class="section-container">
+        <div class="reveal">
+            <span class="section-label" data-i18n="why_label">¿Por qué Global Trade JEG?</span>
+            <h2 class="section-title" data-i18n="why_title" data-i18n-html="true">Decisiones de comercio exterior<br>que protegen su rentabilidad</h2>
+            <p class="section-subtitle" data-i18n="why_subtitle">Cada error en una importación, exportación o negociación internacional le cuesta dinero. Nosotros nos aseguramos de que eso no suceda.</p>
+        </div>
+        <div class="why-grid">
+            <div class="why-card reveal">
+                <div class="why-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+                </div>
+                <h3 data-i18n="why1_title">Dirección Estratégica Senior</h3>
+                <p data-i18n="why1_desc">Acceda a un Director de Comercio Exterior con experiencia comprobada, sin asumir los costos de una contratación fija. Estrategia de alto nivel desde el primer día.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </div>
+                <h3 data-i18n="why2_title">Reducción de Costos Fijos</h3>
+                <p data-i18n="why2_desc">Elimine nómina, cargas laborales y gastos administrativos. Pague únicamente por la dirección estratégica que su operación internacional necesita.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <h3 data-i18n="why3_title">Mitigación de Riesgos</h3>
+                <p data-i18n="why3_desc">Identifique y neutralice riesgos aduaneros, cambiarios y contractuales antes de que se conviertan en pérdidas. Prevención sobre corrección.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <h3 data-i18n="why4_title">Optimización Logística</h3>
+                <p data-i18n="why4_desc">Cada dólar cuenta en comercio exterior. Optimizamos sus rutas, tiempos, proveedores y costos logísticos para maximizar su rentabilidad internacional.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <h3 data-i18n="why5_title">Soporte a Alta Gerencia</h3>
+                <p data-i18n="why5_desc">Trabajamos directamente con su gerencia general, financiera y junta directiva. Información clara, reportes ejecutivos y KPIs que facilitan la toma de decisiones.</p>
+            </div>
+            <div class="why-card reveal">
+                <div class="why-icon">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <h3 data-i18n="why6_title">Visión Internacional</h3>
+                <p data-i18n="why6_desc">No solo gestionamos operaciones: diseñamos la estrategia de internacionalización de su empresa. Nuevos mercados, nuevos proveedores, nuevas oportunidades.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TRUST / EXPERIENCE -->
+<section class="experience-section" id="confianza">
+    <div class="section-container">
+        <div class="experience-grid">
+            <div class="experience-content reveal">
+                <span class="section-label" data-i18n="exp_label">¿Por qué confiar en nosotros?</span>
+                <h2 class="section-title" data-i18n="exp_title" data-i18n-html="true">Experiencia forjada dentro de la 5ª naviera <br>más grande del mundo</h2>
+                <p class="experience-text" data-i18n="exp_text1">Nuestro equipo no aprendió comercio exterior en un aula. Lo vivió desde adentro, trabajando in-house para Hapag-Lloyd, una de las navieras líderes a nivel global con más de 175 años de historia, presencia en más de 140 países y una flota de más de 300 buques.</p>
+                <div class="experience-quote" data-i18n="exp_quote">Entendemos la cadena logística internacional porque la operamos desde el corazón mismo de la industria naviera mundial.</div>
+                <p class="experience-text" data-i18n="exp_text2">Esa experiencia operativa y estratégica de primer nivel es exactamente lo que ponemos al servicio de su empresa. No somos consultores teóricos: somos profesionales que han tomado decisiones reales en una de las operaciones más complejas del comercio global.</p>
+                <div class="experience-stats-row">
+                    <div class="exp-stat">
+                        <h4>Top 5</h4>
+                        <p data-i18n="exp_s1">Naviera global</p>
+                    </div>
+                    <div class="exp-stat">
+                        <h4>140+</h4>
+                        <p data-i18n="exp_s2">Países de operación</p>
+                    </div>
+                    <div class="exp-stat">
+                        <h4>175+</h4>
+                        <p data-i18n="exp_s3">Años de historia</p>
+                    </div>
+                </div>
+            </div>
+            <div class="experience-visual reveal">
+                <div class="exp-card-stack">
+                    <div class="exp-card">
+                        <div class="exp-card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg>
+                        </div>
+                        <h4 data-i18n="exp_c1_title">Experiencia In-House</h4>
+                        <p data-i18n="exp_c1_desc">Formación y trayectoria profesional directa dentro de la operación de una de las mayores navieras del planeta. Conocimiento real, no teórico.</p>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                        </div>
+                        <h4 data-i18n="exp_c2_title">Visión Global, Acción Local</h4>
+                        <p data-i18n="exp_c2_desc">Entendemos cómo opera el comercio internacional a escala mundial y lo aplicamos a la realidad de las empresas colombianas y latinoamericanas.</p>
+                    </div>
+                    <div class="exp-card">
+                        <div class="exp-card-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h4 data-i18n="exp_c3_title">Estándares de Clase Mundial</h4>
+                        <p data-i18n="exp_c3_desc">Los procesos, estándares de calidad y rigor operativo de la industria naviera global son los que aplicamos en cada proyecto que gestionamos para usted.</p>
+                    </div>
+                    <div class="exp-badge-row">
+                        <span class="exp-badge" data-i18n="exp_b1">Logística Naviera</span>
+                        <span class="exp-badge" data-i18n="exp_b2">Supply Chain</span>
+                        <span class="exp-badge" data-i18n="exp_b3">Comercio Global</span>
+                        <span class="exp-badge" data-i18n="exp_b4">Gestión Portuaria</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PLANS -->
+<section class="services" id="planes">
+    <div class="section-container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-label" data-i18n="plans_label">Planes Mensuales</span>
+            <h2 class="section-title" style="color:#fff;" data-i18n="plans_title">Outsourcing estratégico que escala con su negocio</h2>
+            <p class="section-subtitle" style="margin:0 auto;" data-i18n="plans_subtitle">Desde validaciones puntuales hasta dirección completa de comercio exterior. Elija el plan que se ajusta a la etapa de su empresa.</p>
+        </div>
+        <div class="plans-grid">
+            <!-- BASIC -->
+            <div class="plan-card reveal">
+                <span class="plan-tier" data-i18n="plan_tier">Plan Estratégico</span>
+                <h3 class="plan-name">Basic</h3>
+                <p class="plan-hours" data-i18n="basic_hours">10 horas mensuales de acompañamiento</p>
+                <ul class="plan-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="basic_f1">Asesoría estratégica en comercio exterior</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="basic_f2">Validación de decisiones puntuales de importación y exportación</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="basic_f3">Análisis básico de costos y riesgos internacionales</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="basic_f4">Revisión de cumplimiento normativo aduanero</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="basic_f5">Reporte ejecutivo mensual</span></li>
+                </ul>
+                <a href="#contacto" class="plan-cta" data-i18n="plan_cta">Solicitar Información</a>
+                <p class="plan-ideal" data-i18n="basic_ideal">Ideal para: PYMEs con operaciones internacionales puntuales</p>
+            </div>
+            <!-- PRO -->
+            <div class="plan-card featured reveal">
+                <span class="plan-featured-tag" data-i18n="featured_tag">Más Popular</span>
+                <span class="plan-tier" data-i18n="plan_tier">Plan Estratégico</span>
+                <h3 class="plan-name">Pro</h3>
+                <p class="plan-hours" data-i18n="pro_hours">20 horas mensuales de acompañamiento</p>
+                <ul class="plan-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pro_f1">Dirección estratégica continua de comercio exterior</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pro_f2">Planeación y optimización de operaciones internacionales</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pro_f3">Evaluación estratégica de proveedores y clientes internacionales</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pro_f4">Análisis de riesgos aduaneros y cambiarios</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pro_f5">KPIs y plan de acción mensual</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="pro_f6">Acompañamiento directo a gerencia</span></li>
+                </ul>
+                <a href="#contacto" class="plan-cta" data-i18n="plan_cta">Solicitar Información</a>
+                <p class="plan-ideal" data-i18n="pro_ideal">Ideal para: Empresas con operaciones regulares de comercio exterior</p>
+            </div>
+            <!-- EXECUTIVE -->
+            <div class="plan-card reveal">
+                <span class="plan-tier" data-i18n="plan_tier">Plan Estratégico</span>
+                <h3 class="plan-name">Executive</h3>
+                <p class="plan-hours" data-i18n="exec_hours">40 horas mensuales de acompañamiento</p>
+                <ul class="plan-features">
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="exec_f1">Director Externo de Comercio Exterior dedicado</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="exec_f2">Planeación de expansión internacional</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="exec_f3">Optimización avanzada de costos y supply chain</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="exec_f4">Soporte directo a alta gerencia y junta directiva</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="exec_f5">Análisis tributario y cambiario estratégico</span></li>
+                    <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span data-i18n="exec_f6">Dashboard ejecutivo con indicadores en tiempo real</span></li>
+                </ul>
+                <a href="#contacto" class="plan-cta" data-i18n="plan_cta">Solicitar Información</a>
+                <p class="plan-ideal" data-i18n="exec_ideal">Ideal para: Empresas medianas y grandes con alta actividad internacional</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS & TRAINING -->
+<section class="projects" id="proyectos">
+    <div class="section-container">
+        <div class="reveal">
+            <span class="section-label" data-i18n="proj_label">Servicios Complementarios</span>
+            <h2 class="section-title" data-i18n="proj_title" data-i18n-html="true">Proyectos especiales y formación<br>para su equipo</h2>
+            <p class="section-subtitle" data-i18n="proj_subtitle">Soluciones a medida para desafíos específicos de comercio exterior y programas de capacitación que elevan las competencias de su organización.</p>
+        </div>
+        <div class="projects-flex">
+            <div class="project-block reveal">
+                <h3 data-i18n="proj_block1_title">Proyectos Especiales</h3>
+                <p data-i18n="proj_block1_desc">Intervenciones estratégicas diseñadas según el alcance y complejidad de cada operación.</p>
+                <ul class="project-list">
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="proj_s1">Estructuración completa de operaciones de importación o exportación</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="proj_s2">Apertura y evaluación de mercados internacionales</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="proj_s3">Optimización logística integral y reducción de costos operativos</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="proj_s4">Comercialización estratégica de commodities</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="proj_s5">Due diligence de proveedores y socios comerciales internacionales</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="proj_s6">Diagnóstico y auditoría de operaciones de comercio exterior</span></li>
+                </ul>
+            </div>
+            <div class="project-block reveal" id="capacitaciones">
+                <h3 data-i18n="train_title">Capacitaciones Empresariales</h3>
+                <p data-i18n="train_desc">Programas de formación práctica diseñados para equipos operativos, gerenciales y comerciales.</p>
+                <ul class="project-list">
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="train_s1">Comercio exterior y normativa aduanera colombiana e internacional</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="train_s2">Importaciones y exportaciones estratégicas</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="train_s3">Gestión logística internacional y optimización de costos</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="train_s4">Incoterms, contratos y gestión de riesgos internacionales</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="train_s5">Régimen cambiario y obligaciones tributarias en operaciones internacionales</span></li>
+                    <li><span class="p-icon"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span><span data-i18n="train_s6">Compliance y prevención de riesgos LAFT en comercio exterior</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="proceso">
+    <div class="section-container">
+        <div class="reveal" style="text-align:center;">
+            <span class="section-label" data-i18n="how_label">¿Cómo funciona?</span>
+            <h2 class="section-title" data-i18n="how_title" data-i18n-html="true">Comience a operar internacionalmente<br>con respaldo estratégico en 4 pasos</h2>
+        </div>
+        <div class="steps-grid">
+            <div class="step reveal">
+                <div class="step-number">1</div>
+                <h3 data-i18n="step1_title">Diagnóstico</h3>
+                <p data-i18n="step1_desc">Evaluamos su operación actual de comercio exterior, identificamos riesgos y oportunidades de mejora.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-number">2</div>
+                <h3 data-i18n="step2_title">Plan Estratégico</h3>
+                <p data-i18n="step2_desc">Diseñamos una hoja de ruta personalizada con KPIs claros y acciones priorizadas para su negocio.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-number">3</div>
+                <h3 data-i18n="step3_title">Ejecución</h3>
+                <p data-i18n="step3_desc">Acompañamos a su equipo y gerencia en la implementación, optimización y toma de decisiones diarias.</p>
+            </div>
+            <div class="step reveal">
+                <div class="step-number">4</div>
+                <h3 data-i18n="step4_title">Seguimiento</h3>
+                <p data-i18n="step4_desc">Reportes ejecutivos, dashboards y revisiones periódicas para garantizar resultados medibles y sostenibles.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+    <div class="section-container reveal">
+        <span class="section-label" data-i18n="cta_label">¿Listo para dar el siguiente paso?</span>
+        <h2 data-i18n="cta_title" data-i18n-html="true">Lleve su comercio exterior<br>al <em>siguiente nivel.</em></h2>
+        <p data-i18n="cta_desc">Agende una consulta estratégica sin compromiso. Analizamos su operación y le mostramos exactamente cómo podemos optimizar sus resultados internacionales.</p>
+        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+            <a href="mailto:contacto@globaltradejeg.com" class="btn-primary" data-i18n="cta_btn1">Agendar Consulta Estratégica →</a>
+            <a href="https://wa.me/" class="btn-secondary" style="border-color:rgba(255,255,255,0.2); color:#fff;" data-i18n="cta_btn2">WhatsApp Directo</a>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-brand">
+            <a href="#" class="nav-logo">Global Trade <span>JEG</span></a>
+            <p data-i18n="footer_desc">Outsourcing estratégico de comercio exterior para empresas que buscan crecer internacionalmente con respaldo, eficiencia y visión.</p>
+            <p style="margin-top:1rem;">Barranquilla, Colombia</p>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_services">Servicios</h4>
+            <ul>
+                <li><a href="#planes">Plan Basic</a></li>
+                <li><a href="#planes">Plan Pro</a></li>
+                <li><a href="#planes">Plan Executive</a></li>
+                <li><a href="#proyectos" data-i18n="footer_special">Proyectos Especiales</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_training">Formación</h4>
+            <ul>
+                <li><a href="#capacitaciones" data-i18n="footer_t1">Normativa Aduanera</a></li>
+                <li><a href="#capacitaciones" data-i18n="footer_t2">Importaciones & Exportaciones</a></li>
+                <li><a href="#capacitaciones" data-i18n="footer_t3">Logística Internacional</a></li>
+                <li><a href="#capacitaciones" data-i18n="footer_t4">Incoterms & Contratos</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4 data-i18n="footer_contact">Contacto</h4>
+            <ul>
+                <li><a href="mailto:contacto@globaltradejeg.com">contacto@globaltradejeg.com</a></li>
+                <li><a href="#">Barranquilla, Colombia</a></li>
+                <li><a href="#contacto" data-i18n="footer_schedule">Agendar Consulta</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p data-i18n="footer_copy">© 2026 Global Trade JEG S.A.S. Todos los derechos reservados.</p>
+        <div style="display:flex; gap:1.5rem;">
+            <a href="#" data-i18n="footer_privacy">Política de Privacidad</a>
+            <a href="#" data-i18n="footer_terms">Términos y Condiciones</a>
+        </div>
+    </div>
+</footer>
+
+<script>
+// ====================
+// i18n TRANSLATIONS
+// ====================
+const translations = {
+    es: {
+        // Nav
+        nav_services: "Servicios",
+        nav_trust: "Confianza",
+        nav_plans: "Planes",
+        nav_projects: "Proyectos",
+        nav_training: "Capacitaciones",
+        nav_process: "Proceso",
+        nav_cta: "Agendar Consulta",
+
+        // Hero
+        hero_badge: "Outsourcing Estratégico de Comercio Exterior",
+        hero_title: 'Su departamento de comercio exterior, <em>sin los costos de uno.</em>',
+        hero_sub: "Dirección estratégica senior en importaciones, exportaciones y logística internacional. Resultados de un director en planta, con la flexibilidad y eficiencia del outsourcing.",
+        hero_btn1: "Ver Planes Estratégicos →",
+        hero_btn2: "Solicitar Diagnóstico Gratuito",
+        stat1: "Enfoque estratégico",
+        stat2: "Cargas laborales",
+        stat3: "Planes a su medida",
+
+        // Trust
+        trust_title: "Respaldados por experiencia en",
+        trust1: "Cumplimiento Normativo",
+        trust2: "Operaciones Internacionales",
+        trust3: "Optimización de Costos",
+        trust4: "Confidencialidad Total",
+
+        // Why Us
+        why_label: "¿Por qué Global Trade JEG?",
+        why_title: 'Decisiones de comercio exterior<br>que protegen su rentabilidad',
+        why_subtitle: "Cada error en una importación, exportación o negociación internacional le cuesta dinero. Nosotros nos aseguramos de que eso no suceda.",
+        why1_title: "Dirección Estratégica Senior",
+        why1_desc: "Acceda a un Director de Comercio Exterior con experiencia comprobada, sin asumir los costos de una contratación fija. Estrategia de alto nivel desde el primer día.",
+        why2_title: "Reducción de Costos Fijos",
+        why2_desc: "Elimine nómina, cargas laborales y gastos administrativos. Pague únicamente por la dirección estratégica que su operación internacional necesita.",
+        why3_title: "Mitigación de Riesgos",
+        why3_desc: "Identifique y neutralice riesgos aduaneros, cambiarios y contractuales antes de que se conviertan en pérdidas. Prevención sobre corrección.",
+        why4_title: "Optimización Logística",
+        why4_desc: "Cada dólar cuenta en comercio exterior. Optimizamos sus rutas, tiempos, proveedores y costos logísticos para maximizar su rentabilidad internacional.",
+        why5_title: "Soporte a Alta Gerencia",
+        why5_desc: "Trabajamos directamente con su gerencia general, financiera y junta directiva. Información clara, reportes ejecutivos y KPIs que facilitan la toma de decisiones.",
+        why6_title: "Visión Internacional",
+        why6_desc: "No solo gestionamos operaciones: diseñamos la estrategia de internacionalización de su empresa. Nuevos mercados, nuevos proveedores, nuevas oportunidades.",
+
+        // Experience / Trust
+        exp_label: "¿Por qué confiar en nosotros?",
+        exp_title: 'Experiencia forjada dentro de la 5ª naviera <br>más grande del mundo',
+        exp_text1: "Nuestro equipo no aprendió comercio exterior en un aula. Lo vivió desde adentro, trabajando in-house para Hapag-Lloyd, una de las navieras líderes a nivel global con más de 175 años de historia, presencia en más de 140 países y una flota de más de 300 buques.",
+        exp_quote: "Entendemos la cadena logística internacional porque la operamos desde el corazón mismo de la industria naviera mundial.",
+        exp_text2: "Esa experiencia operativa y estratégica de primer nivel es exactamente lo que ponemos al servicio de su empresa. No somos consultores teóricos: somos profesionales que han tomado decisiones reales en una de las operaciones más complejas del comercio global.",
+        exp_s1: "Naviera global",
+        exp_s2: "Países de operación",
+        exp_s3: "Años de historia",
+        exp_c1_title: "Experiencia In-House",
+        exp_c1_desc: "Formación y trayectoria profesional directa dentro de la operación de una de las mayores navieras del planeta. Conocimiento real, no teórico.",
+        exp_c2_title: "Visión Global, Acción Local",
+        exp_c2_desc: "Entendemos cómo opera el comercio internacional a escala mundial y lo aplicamos a la realidad de las empresas colombianas y latinoamericanas.",
+        exp_c3_title: "Estándares de Clase Mundial",
+        exp_c3_desc: "Los procesos, estándares de calidad y rigor operativo de la industria naviera global son los que aplicamos en cada proyecto que gestionamos para usted.",
+        exp_b1: "Logística Naviera",
+        exp_b2: "Supply Chain",
+        exp_b3: "Comercio Global",
+        exp_b4: "Gestión Portuaria",
+
+        // Plans
+        plans_label: "Planes Mensuales",
+        plans_title: "Outsourcing estratégico que escala con su negocio",
+        plans_subtitle: "Desde validaciones puntuales hasta dirección completa de comercio exterior. Elija el plan que se ajusta a la etapa de su empresa.",
+        plan_tier: "Plan Estratégico",
+        featured_tag: "Más Popular",
+        plan_cta: "Solicitar Información",
+        basic_hours: "10 horas mensuales de acompañamiento",
+        basic_f1: "Asesoría estratégica en comercio exterior",
+        basic_f2: "Validación de decisiones puntuales de importación y exportación",
+        basic_f3: "Análisis básico de costos y riesgos internacionales",
+        basic_f4: "Revisión de cumplimiento normativo aduanero",
+        basic_f5: "Reporte ejecutivo mensual",
+        basic_ideal: "Ideal para: PYMEs con operaciones internacionales puntuales",
+        pro_hours: "20 horas mensuales de acompañamiento",
+        pro_f1: "Dirección estratégica continua de comercio exterior",
+        pro_f2: "Planeación y optimización de operaciones internacionales",
+        pro_f3: "Evaluación estratégica de proveedores y clientes internacionales",
+        pro_f4: "Análisis de riesgos aduaneros y cambiarios",
+        pro_f5: "KPIs y plan de acción mensual",
+        pro_f6: "Acompañamiento directo a gerencia",
+        pro_ideal: "Ideal para: Empresas con operaciones regulares de comercio exterior",
+        exec_hours: "40 horas mensuales de acompañamiento",
+        exec_f1: "Director Externo de Comercio Exterior dedicado",
+        exec_f2: "Planeación de expansión internacional",
+        exec_f3: "Optimización avanzada de costos y supply chain",
+        exec_f4: "Soporte directo a alta gerencia y junta directiva",
+        exec_f5: "Análisis tributario y cambiario estratégico",
+        exec_f6: "Dashboard ejecutivo con indicadores en tiempo real",
+        exec_ideal: "Ideal para: Empresas medianas y grandes con alta actividad internacional",
+
+        // Projects
+        proj_label: "Servicios Complementarios",
+        proj_title: 'Proyectos especiales y formación<br>para su equipo',
+        proj_subtitle: "Soluciones a medida para desafíos específicos de comercio exterior y programas de capacitación que elevan las competencias de su organización.",
+        proj_block1_title: "Proyectos Especiales",
+        proj_block1_desc: "Intervenciones estratégicas diseñadas según el alcance y complejidad de cada operación.",
+        proj_s1: "Estructuración completa de operaciones de importación o exportación",
+        proj_s2: "Apertura y evaluación de mercados internacionales",
+        proj_s3: "Optimización logística integral y reducción de costos operativos",
+        proj_s4: "Comercialización estratégica de commodities",
+        proj_s5: 'Due diligence de proveedores y socios comerciales internacionales',
+        proj_s6: 'Diagnóstico y auditoría de operaciones de comercio exterior',
+        train_title: "Capacitaciones Empresariales",
+        train_desc: "Programas de formación práctica diseñados para equipos operativos, gerenciales y comerciales.",
+        train_s1: "Comercio exterior y normativa aduanera colombiana e internacional",
+        train_s2: "Importaciones y exportaciones estratégicas",
+        train_s3: "Gestión logística internacional y optimización de costos",
+        train_s4: "Incoterms, contratos y gestión de riesgos internacionales",
+        train_s5: 'Régimen cambiario y obligaciones tributarias en operaciones internacionales',
+        train_s6: 'Compliance y prevención de riesgos LAFT en comercio exterior',
+
+        // How It Works
+        how_label: "¿Cómo funciona?",
+        how_title: 'Comience a operar internacionalmente<br>con respaldo estratégico en 4 pasos',
+        step1_title: "Diagnóstico",
+        step1_desc: "Evaluamos su operación actual de comercio exterior, identificamos riesgos y oportunidades de mejora.",
+        step2_title: "Plan Estratégico",
+        step2_desc: "Diseñamos una hoja de ruta personalizada con KPIs claros y acciones priorizadas para su negocio.",
+        step3_title: "Ejecución",
+        step3_desc: "Acompañamos a su equipo y gerencia en la implementación, optimización y toma de decisiones diarias.",
+        step4_title: "Seguimiento",
+        step4_desc: "Reportes ejecutivos, dashboards y revisiones periódicas para garantizar resultados medibles y sostenibles.",
+
+        // CTA
+        cta_label: "¿Listo para dar el siguiente paso?",
+        cta_title: 'Lleve su comercio exterior<br>al <em>siguiente nivel.</em>',
+        cta_desc: "Agende una consulta estratégica sin compromiso. Analizamos su operación y le mostramos exactamente cómo podemos optimizar sus resultados internacionales.",
+        cta_btn1: "Agendar Consulta Estratégica →",
+        cta_btn2: "WhatsApp Directo",
+
+        // Footer
+        footer_desc: "Outsourcing estratégico de comercio exterior para empresas que buscan crecer internacionalmente con respaldo, eficiencia y visión.",
+        footer_services: "Servicios",
+        footer_special: "Proyectos Especiales",
+        footer_training: "Formación",
+        footer_t1: "Normativa Aduanera",
+        footer_t2: "Importaciones & Exportaciones",
+        footer_t3: "Logística Internacional",
+        footer_t4: "Incoterms & Contratos",
+        footer_contact: "Contacto",
+        footer_schedule: "Agendar Consulta",
+        footer_copy: "© 2026 Global Trade JEG S.A.S. Todos los derechos reservados.",
+        footer_privacy: "Política de Privacidad",
+        footer_terms: "Términos y Condiciones",
+    },
+    en: {
+        // Nav
+        nav_services: "Services",
+        nav_trust: "Trust",
+        nav_plans: "Plans",
+        nav_projects: "Projects",
+        nav_training: "Training",
+        nav_process: "Process",
+        nav_cta: "Book a Consultation",
+
+        // Hero
+        hero_badge: "Strategic Foreign Trade Outsourcing",
+        hero_title: 'Your foreign trade department, <em>without the overhead.</em>',
+        hero_sub: "Senior strategic direction in imports, exports, and international logistics. The results of a full-time director, with the flexibility and efficiency of outsourcing.",
+        hero_btn1: "View Strategic Plans →",
+        hero_btn2: "Request Free Assessment",
+        stat1: "Strategic focus",
+        stat2: "Labor overhead",
+        stat3: "Tailored plans",
+
+        // Trust
+        trust_title: "Backed by expertise in",
+        trust1: "Regulatory Compliance",
+        trust2: "International Operations",
+        trust3: "Cost Optimization",
+        trust4: "Full Confidentiality",
+
+        // Why Us
+        why_label: "Why Global Trade JEG?",
+        why_title: 'Foreign trade decisions<br>that protect your bottom line',
+        why_subtitle: "Every mistake in an import, export, or international negotiation costs you money. We make sure that doesn't happen.",
+        why1_title: "Senior Strategic Direction",
+        why1_desc: "Access a Foreign Trade Director with proven experience, without the costs of a full-time hire. High-level strategy from day one.",
+        why2_title: "Fixed Cost Reduction",
+        why2_desc: "Eliminate payroll, labor charges, and administrative expenses. Pay only for the strategic direction your international operation needs.",
+        why3_title: "Risk Mitigation",
+        why3_desc: "Identify and neutralize customs, exchange rate, and contractual risks before they become losses. Prevention over correction.",
+        why4_title: "Logistics Optimization",
+        why4_desc: "Every dollar counts in foreign trade. We optimize your routes, timelines, suppliers, and logistics costs to maximize your international profitability.",
+        why5_title: "C-Suite Support",
+        why5_desc: "We work directly with your CEO, CFO, and board of directors. Clear information, executive reports, and KPIs that drive better decisions.",
+        why6_title: "International Vision",
+        why6_desc: "We don't just manage operations — we design your company's internationalization strategy. New markets, new suppliers, new opportunities.",
+
+        // Experience / Trust
+        exp_label: "Why trust us?",
+        exp_title: 'Experience forged inside the world\'s<br>5th largest shipping line',
+        exp_text1: "Our team didn't learn foreign trade in a classroom. We lived it from the inside, working in-house at Hapag-Lloyd — one of the world's leading shipping companies with over 175 years of history, a presence in 140+ countries, and a fleet of 300+ vessels.",
+        exp_quote: "We understand the international logistics chain because we operated it from the very heart of the global shipping industry.",
+        exp_text2: "That world-class operational and strategic experience is exactly what we bring to your business. We're not theoretical consultants — we're professionals who have made real decisions in one of the most complex operations in global trade.",
+        exp_s1: "Global shipping line",
+        exp_s2: "Countries of operation",
+        exp_s3: "Years of history",
+        exp_c1_title: "In-House Experience",
+        exp_c1_desc: "Direct professional background within the operations of one of the planet's largest shipping companies. Real knowledge, not theoretical.",
+        exp_c2_title: "Global Vision, Local Action",
+        exp_c2_desc: "We understand how international trade works on a global scale and apply it to the reality of Colombian and Latin American businesses.",
+        exp_c3_title: "World-Class Standards",
+        exp_c3_desc: "The processes, quality standards, and operational rigor of the global shipping industry are what we apply to every project we manage for you.",
+        exp_b1: "Shipping Logistics",
+        exp_b2: "Supply Chain",
+        exp_b3: "Global Trade",
+        exp_b4: "Port Management",
+
+        // Plans
+        plans_label: "Monthly Plans",
+        plans_title: "Strategic outsourcing that scales with your business",
+        plans_subtitle: "From ad-hoc validations to full foreign trade direction. Choose the plan that fits your company's stage.",
+        plan_tier: "Strategic Plan",
+        featured_tag: "Most Popular",
+        plan_cta: "Request Information",
+        basic_hours: "10 hours/month of strategic support",
+        basic_f1: "Strategic advisory in foreign trade",
+        basic_f2: "Validation of specific import and export decisions",
+        basic_f3: "Basic cost and international risk analysis",
+        basic_f4: "Customs regulatory compliance review",
+        basic_f5: "Monthly executive report",
+        basic_ideal: "Ideal for: SMEs with occasional international operations",
+        pro_hours: "20 hours/month of strategic support",
+        pro_f1: "Ongoing strategic direction of foreign trade",
+        pro_f2: "Planning and optimization of international operations",
+        pro_f3: "Strategic evaluation of international suppliers and clients",
+        pro_f4: "Customs and exchange rate risk analysis",
+        pro_f5: "KPIs and monthly action plan",
+        pro_f6: "Direct management advisory support",
+        pro_ideal: "Ideal for: Companies with regular foreign trade operations",
+        exec_hours: "40 hours/month of strategic support",
+        exec_f1: "Dedicated External Foreign Trade Director",
+        exec_f2: "International expansion planning",
+        exec_f3: "Advanced cost and supply chain optimization",
+        exec_f4: "Direct support to C-suite and board of directors",
+        exec_f5: "Strategic tax and exchange rate analysis",
+        exec_f6: "Executive dashboard with real-time indicators",
+        exec_ideal: "Ideal for: Mid-size and large companies with high international activity",
+
+        // Projects
+        proj_label: "Complementary Services",
+        proj_title: 'Special projects and training<br>for your team',
+        proj_subtitle: "Tailored solutions for specific foreign trade challenges and training programs that elevate your organization's competencies.",
+        proj_block1_title: "Special Projects",
+        proj_block1_desc: "Strategic interventions designed according to the scope and complexity of each operation.",
+        proj_s1: "Full structuring of import or export operations",
+        proj_s2: "International market entry and evaluation",
+        proj_s3: "Comprehensive logistics optimization and operating cost reduction",
+        proj_s4: "Strategic commodity trading",
+        proj_s5: 'Due diligence on international suppliers and business partners',
+        proj_s6: 'Foreign trade operations diagnostic and audit',
+        train_title: "Corporate Training Programs",
+        train_desc: "Hands-on training programs designed for operational, management, and commercial teams.",
+        train_s1: "Foreign trade and Colombian & international customs regulations",
+        train_s2: "Strategic imports and exports",
+        train_s3: "International logistics management and cost optimization",
+        train_s4: "Incoterms, contracts, and international risk management",
+        train_s5: 'Exchange rate regulations and tax obligations in international operations',
+        train_s6: 'Compliance and AML/CFT risk prevention in foreign trade',
+
+        // How It Works
+        how_label: "How does it work?",
+        how_title: 'Start operating internationally<br>with strategic backing in 4 steps',
+        step1_title: "Assessment",
+        step1_desc: "We evaluate your current foreign trade operations, identify risks, and uncover improvement opportunities.",
+        step2_title: "Strategic Plan",
+        step2_desc: "We design a customized roadmap with clear KPIs and prioritized actions for your business.",
+        step3_title: "Execution",
+        step3_desc: "We support your team and management in implementation, optimization, and daily decision-making.",
+        step4_title: "Follow-up",
+        step4_desc: "Executive reports, dashboards, and periodic reviews to ensure measurable and sustainable results.",
+
+        // CTA
+        cta_label: "Ready to take the next step?",
+        cta_title: 'Take your foreign trade<br>to the <em>next level.</em>',
+        cta_desc: "Schedule a no-obligation strategic consultation. We'll analyze your operations and show you exactly how we can optimize your international results.",
+        cta_btn1: "Book a Strategic Consultation →",
+        cta_btn2: "Direct WhatsApp",
+
+        // Footer
+        footer_desc: "Strategic foreign trade outsourcing for companies looking to grow internationally with expertise, efficiency, and vision.",
+        footer_services: "Services",
+        footer_special: "Special Projects",
+        footer_training: "Training",
+        footer_t1: "Customs Regulations",
+        footer_t2: "Imports & Exports",
+        footer_t3: "International Logistics",
+        footer_t4: "Incoterms & Contracts",
+        footer_contact: "Contact",
+        footer_schedule: "Book a Consultation",
+        footer_copy: "© 2026 Global Trade JEG S.A.S. All rights reserved.",
+        footer_privacy: "Privacy Policy",
+        footer_terms: "Terms & Conditions",
+    }
+};
+
+let currentLang = 'es';
+
+function switchLang(lang) {
+    if (lang === currentLang) return;
+    currentLang = lang;
+
+    // Toggle active button
+    document.getElementById('btnES').classList.toggle('active', lang === 'es');
+    document.getElementById('btnEN').classList.toggle('active', lang === 'en');
+
+    // Update html lang attribute
+    document.documentElement.lang = lang;
+    document.title = lang === 'es'
+        ? 'Global Trade JEG S.A.S. | Outsourcing Estratégico de Comercio Exterior'
+        : 'Global Trade JEG S.A.S. | Strategic Foreign Trade Outsourcing';
+
+    // Animate transition
+    document.body.classList.add('lang-switching');
+
+    setTimeout(() => {
+        // Update all translatable elements
+        document.querySelectorAll('[data-i18n]').forEach(el => {
+            const key = el.getAttribute('data-i18n');
+            const text = translations[lang][key];
+            if (text) {
+                if (el.hasAttribute('data-i18n-html')) {
+                    el.innerHTML = text;
+                } else {
+                    el.textContent = text;
+                }
+            }
+        });
+
+        document.body.classList.remove('lang-switching');
+    }, 250);
+}
+
+// Navbar scroll
+window.addEventListener('scroll', () => {
+    const nav = document.getElementById('navbar');
+    const switcher = document.getElementById('langSwitcher');
+    if (window.scrollY > 80) {
+        nav.classList.add('scrolled');
+        switcher.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+        switcher.classList.remove('scrolled');
+    }
+});
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            setTimeout(() => { entry.target.classList.add('visible'); }, index * 80);
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.getElementById('navLinks').classList.remove('open');
+        }
+    });
+});
+</script>
+</body>
+</html>
