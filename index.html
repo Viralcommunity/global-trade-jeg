@@ -33,24 +33,17 @@
 
         /* LANGUAGE SWITCHER */
         .lang-switcher {
-            position: fixed;
-            top: 1.1rem;
-            right: 6rem;
-            z-index: 1100;
             display: flex;
             align-items: center;
-            background: rgba(11, 29, 58, 0.7);
-            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255,255,255,0.12);
             border-radius: 50px;
-            padding: 4px;
-            gap: 4px;
-            transition: all 0.4s ease;
+            padding: 3px;
+            gap: 3px;
         }
 
-        nav.scrolled ~ .lang-switcher,
-        .lang-switcher.scrolled {
-            background: rgba(11, 29, 58, 0.95);
+        nav.scrolled .lang-switcher {
+            background: rgba(255, 255, 255, 0.06);
         }
 
         .lang-btn {
@@ -1021,7 +1014,6 @@
             .steps-grid { grid-template-columns: repeat(2, 1fr); }
             .steps-grid::before { display: none; }
             .footer-grid { grid-template-columns: 1fr 1fr; }
-            .lang-switcher { right: 4.5rem; }
         }
 
         @media (max-width: 768px) {
@@ -1049,14 +1041,9 @@
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
 
-            .lang-switcher {
-                right: 4rem;
-                top: 1rem;
-            }
-
             .lang-btn {
-                padding: 6px 12px;
-                font-size: 0.75rem;
+                padding: 6px 10px;
+                font-size: 0.72rem;
             }
 
             .lang-flag { width: 18px; height: 18px; }
@@ -1078,34 +1065,6 @@
 </head>
 <body>
 
-<!-- LANGUAGE SWITCHER -->
-<div class="lang-switcher" id="langSwitcher">
-    <button class="lang-btn active" id="btnES" onclick="switchLang('es')">
-        <span class="lang-flag">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                <rect width="36" height="36" rx="18" fill="#C60B1E"/>
-                <rect y="9" width="36" height="18" fill="#FFC400"/>
-            </svg>
-        </span>
-        ES
-    </button>
-    <button class="lang-btn" id="btnEN" onclick="switchLang('en')">
-        <span class="lang-flag">
-            <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                <rect width="36" height="36" rx="18" fill="#B22234"/>
-                <rect y="3" width="36" height="2.77" fill="#fff"/>
-                <rect y="8.54" width="36" height="2.77" fill="#fff"/>
-                <rect y="14.08" width="36" height="2.77" fill="#fff"/>
-                <rect y="19.62" width="36" height="2.77" fill="#fff"/>
-                <rect y="25.15" width="36" height="2.77" fill="#fff"/>
-                <rect y="30.69" width="36" height="2.77" fill="#fff"/>
-                <rect width="14.4" height="19.38" fill="#3C3B6E"/>
-            </svg>
-        </span>
-        EN
-    </button>
-</div>
-
 <!-- NAV -->
 <nav id="navbar">
     <a href="#" class="nav-logo">Global Trade <span>JEG</span></a>
@@ -1116,6 +1075,34 @@
         <li><a href="#proyectos" data-i18n="nav_projects">Proyectos</a></li>
         <li><a href="#capacitaciones" data-i18n="nav_training">Capacitaciones</a></li>
         <li><a href="#proceso" data-i18n="nav_process">Proceso</a></li>
+        <li>
+            <div class="lang-switcher" id="langSwitcher">
+                <button class="lang-btn active" id="btnES" onclick="switchLang('es')">
+                    <span class="lang-flag">
+                        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="36" height="36" rx="18" fill="#C60B1E"/>
+                            <rect y="9" width="36" height="18" fill="#FFC400"/>
+                        </svg>
+                    </span>
+                    ES
+                </button>
+                <button class="lang-btn" id="btnEN" onclick="switchLang('en')">
+                    <span class="lang-flag">
+                        <svg viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="36" height="36" rx="18" fill="#B22234"/>
+                            <rect y="3" width="36" height="2.77" fill="#fff"/>
+                            <rect y="8.54" width="36" height="2.77" fill="#fff"/>
+                            <rect y="14.08" width="36" height="2.77" fill="#fff"/>
+                            <rect y="19.62" width="36" height="2.77" fill="#fff"/>
+                            <rect y="25.15" width="36" height="2.77" fill="#fff"/>
+                            <rect y="30.69" width="36" height="2.77" fill="#fff"/>
+                            <rect width="14.4" height="19.38" fill="#3C3B6E"/>
+                        </svg>
+                    </span>
+                    EN
+                </button>
+            </div>
+        </li>
         <li><a href="#contacto" class="nav-cta" data-i18n="nav_cta">Agendar Consulta</a></li>
     </ul>
     <div class="mobile-toggle" onclick="document.getElementById('navLinks').classList.toggle('open')">
@@ -1823,13 +1810,10 @@ function switchLang(lang) {
 // Navbar scroll
 window.addEventListener('scroll', () => {
     const nav = document.getElementById('navbar');
-    const switcher = document.getElementById('langSwitcher');
     if (window.scrollY > 80) {
         nav.classList.add('scrolled');
-        switcher.classList.add('scrolled');
     } else {
         nav.classList.remove('scrolled');
-        switcher.classList.remove('scrolled');
     }
 });
 
