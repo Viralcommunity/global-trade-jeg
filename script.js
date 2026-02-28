@@ -524,9 +524,9 @@ function createGradualBlur(container, options) {
     if (hero) {
         createGradualBlur(hero, {
             position:    'bottom',
-            height:      '9rem',
-            strength:    2,
-            divCount:    5,
+            height:      '13rem',
+            strength:    10,
+            divCount:    7,
             curve:       'bezier',
             exponential: true,
             opacity:     1
@@ -538,12 +538,12 @@ function createGradualBlur(container, options) {
     if (whyUs) {
         createGradualBlur(whyUs, {
             position:    'bottom',
-            height:      '6rem',
-            strength:    1.5,
-            divCount:    5,
+            height:      '10rem',
+            strength:    8,
+            divCount:    7,
             curve:       'bezier',
             exponential: false,
-            opacity:     0.9
+            opacity:     1
         });
     }
 
@@ -552,12 +552,12 @@ function createGradualBlur(container, options) {
     if (plans) {
         createGradualBlur(plans, {
             position:    'bottom',
-            height:      '6rem',
-            strength:    1.5,
-            divCount:    5,
+            height:      '10rem',
+            strength:    8,
+            divCount:    7,
             curve:       'bezier',
             exponential: false,
-            opacity:     0.9
+            opacity:     1
         });
     }
 })();

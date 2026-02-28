@@ -467,6 +467,8 @@ section { padding: 7rem 2.5rem; }
     font-size: 1rem;
     color: var(--text-2);
     max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
     line-height: 1.78;
 }
 
@@ -474,6 +476,10 @@ section { padding: 7rem 2.5rem; }
    WHY US / SERVICES
    ============================ */
 .why-us { background: var(--bg); position: relative; overflow: hidden; }
+
+.why-us > .section-container > .reveal {
+    text-align: center;
+}
 
 .why-grid {
     display: grid;
@@ -823,6 +829,10 @@ section { padding: 7rem 2.5rem; }
    PROJECTS & TRAINING
    ============================ */
 .projects { background: var(--bg-deep); }
+
+.projects > .section-container > .reveal {
+    text-align: center;
+}
 
 .projects-flex {
     display: grid;
