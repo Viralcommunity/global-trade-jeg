@@ -137,6 +137,28 @@ const translations = {
         cta_btn1: "Agendar Consulta Estratégica →",
         cta_btn2: "WhatsApp Directo",
 
+        // Contact Form
+        contact_label: "Escríbenos",
+        contact_title: "Cuéntenos sobre su operación",
+        contact_subtitle: "Complete el formulario y le responderemos en menos de 24 horas.",
+        form_name: "Nombre completo",
+        form_name_ph: "Su nombre completo",
+        form_company: "Empresa",
+        form_company_ph: "Nombre de su empresa",
+        form_email: "Correo electrónico",
+        form_email_ph: "su@correo.com",
+        form_message: "Mensaje",
+        form_message_ph: "Cuéntenos sobre su operación internacional...",
+        form_submit: "Enviar Mensaje →",
+        form_sending: "Enviando…",
+        form_success: "✓ ¡Mensaje enviado! Le responderemos pronto.",
+        contact_whatsapp_label: "WhatsApp",
+        contact_whatsapp_value: "Escríbanos directamente",
+        contact_email_label: "Correo electrónico",
+        contact_email_value: "hello@globaltradejeg.com",
+        contact_location_label: "Dirección",
+        contact_location_value: "Barranquilla, Colombia",
+
         // Footer
         footer_desc: "Outsourcing estratégico de comercio exterior para empresas que buscan crecer internacionalmente con respaldo, eficiencia y visión.",
         footer_services: "Servicios",
@@ -287,6 +309,28 @@ const translations = {
         cta_btn1: "Book a Strategic Consultation →",
         cta_btn2: "Direct WhatsApp",
 
+        // Contact Form
+        contact_label: "Contact Us",
+        contact_title: "Tell Us About Your Operation",
+        contact_subtitle: "Fill out the form and we'll respond within 24 hours.",
+        form_name: "Full Name",
+        form_name_ph: "Your full name",
+        form_company: "Company",
+        form_company_ph: "Your company name",
+        form_email: "Email Address",
+        form_email_ph: "your@email.com",
+        form_message: "Message",
+        form_message_ph: "Tell us about your international operations...",
+        form_submit: "Send Message →",
+        form_sending: "Sending…",
+        form_success: "✓ Message sent! We'll respond shortly.",
+        contact_whatsapp_label: "WhatsApp",
+        contact_whatsapp_value: "Message us directly",
+        contact_email_label: "Email Address",
+        contact_email_value: "hello@globaltradejeg.com",
+        contact_location_label: "Address",
+        contact_location_value: "Barranquilla, Colombia",
+
         // Footer
         footer_desc: "Strategic foreign trade outsourcing for companies looking to grow internationally with expertise, efficiency, and vision.",
         footer_services: "Services",
@@ -334,6 +378,11 @@ function switchLang(lang) {
                     el.textContent = text;
                 }
             }
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            const text = translations[lang][key];
+            if (text) el.placeholder = text;
         });
         document.body.classList.remove('lang-switching');
     }, 220);
@@ -406,13 +455,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const btn = form.querySelector('.contact-submit');
         btn.disabled = true;
-        btn.textContent = 'Enviando…';
+        btn.textContent = translations[currentLang].form_sending || 'Enviando…';
         setTimeout(() => {
             form.reset();
-            btn.textContent = 'Enviar Mensaje →';
+            btn.textContent = translations[currentLang].form_submit || 'Enviar Mensaje →';
             btn.disabled = false;
             const success = document.getElementById('formSuccess');
             if (success) {
+                success.textContent = translations[currentLang].form_success || '✓ ¡Mensaje enviado! Le responderemos pronto.';
                 success.classList.add('visible');
                 setTimeout(() => success.classList.remove('visible'), 5000);
             }

@@ -493,6 +493,8 @@
 
 <!-- ═══════════ CTA ═══════════ -->
 <section class="cta-section">
+    <div class="cta-glow-orb cta-glow-left"></div>
+    <div class="cta-glow-orb cta-glow-right"></div>
     <div class="section-container reveal">
         <span class="section-label" data-i18n="cta_label">¿Listo para dar el siguiente paso?</span>
         <h2 data-i18n="cta_title" data-i18n-html="true">
@@ -501,6 +503,10 @@
         <p data-i18n="cta_desc">
             Agende una consulta estratégica sin compromiso. Analizamos su operación y le mostramos exactamente cómo podemos optimizar sus resultados internacionales.
         </p>
+        <div class="cta-actions">
+            <a href="#contacto" class="btn-primary" data-i18n="cta_btn1">Agendar Consulta Estratégica →</a>
+            <a href="https://wa.me/" class="btn-secondary" target="_blank" rel="noopener" data-i18n="cta_btn2">WhatsApp Directo</a>
+        </div>
     </div>
 </section>
 
@@ -509,30 +515,30 @@
     <div class="section-container">
         <div class="contact-form-wrapper reveal">
             <div class="contact-form-header">
-                <span class="section-label">Escríbenos</span>
-                <h2 class="section-title">Cuéntenos sobre su operación</h2>
-                <p class="section-subtitle">Complete el formulario y le responderemos en menos de 24 horas.</p>
+                <span class="section-label" data-i18n="contact_label">Escríbenos</span>
+                <h2 class="section-title" data-i18n="contact_title">Cuéntenos sobre su operación</h2>
+                <p class="section-subtitle" data-i18n="contact_subtitle">Complete el formulario y le responderemos en menos de 24 horas.</p>
             </div>
             <form class="contact-form" id="contactForm">
                 <div class="form-row">
                     <div class="form-group">
-                        <label for="nombre">Nombre completo</label>
-                        <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" required>
+                        <label for="nombre" data-i18n="form_name">Nombre completo</label>
+                        <input type="text" id="nombre" name="nombre" placeholder="Su nombre completo" data-i18n-placeholder="form_name_ph" required>
                     </div>
                     <div class="form-group">
-                        <label for="empresa">Empresa</label>
-                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa">
+                        <label for="empresa" data-i18n="form_company">Empresa</label>
+                        <input type="text" id="empresa" name="empresa" placeholder="Nombre de su empresa" data-i18n-placeholder="form_company_ph">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="email">Correo electrónico</label>
-                    <input type="email" id="email" name="email" placeholder="su@correo.com" required>
+                    <label for="email" data-i18n="form_email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" placeholder="su@correo.com" data-i18n-placeholder="form_email_ph" required>
                 </div>
                 <div class="form-group">
-                    <label for="mensaje">Mensaje</label>
-                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntenos sobre su operación internacional..." required></textarea>
+                    <label for="mensaje" data-i18n="form_message">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntenos sobre su operación internacional..." data-i18n-placeholder="form_message_ph" required></textarea>
                 </div>
-                <button type="submit" class="btn-primary contact-submit">Enviar Mensaje →</button>
+                <button type="submit" class="btn-primary contact-submit" data-i18n="form_submit">Enviar Mensaje →</button>
                 <div class="contact-form-success" id="formSuccess">
                     ✓ ¡Mensaje enviado! Le responderemos pronto.
                 </div>
@@ -547,8 +553,8 @@
                     </svg>
                 </div>
                 <div class="contact-info-text">
-                    <span class="contact-info-label">WhatsApp</span>
-                    <span class="contact-info-value">Escríbanos directamente</span>
+                    <span class="contact-info-label" data-i18n="contact_whatsapp_label">WhatsApp</span>
+                    <span class="contact-info-value" data-i18n="contact_whatsapp_value">Escríbanos directamente</span>
                 </div>
             </a>
             <a href="mailto:hello@globaltradejeg.com" class="contact-info-item">
@@ -559,8 +565,8 @@
                     </svg>
                 </div>
                 <div class="contact-info-text">
-                    <span class="contact-info-label">Correo electrónico</span>
-                    <span class="contact-info-value">hello@globaltradejeg.com</span>
+                    <span class="contact-info-label" data-i18n="contact_email_label">Correo electrónico</span>
+                    <span class="contact-info-value" data-i18n="contact_email_value">hello@globaltradejeg.com</span>
                 </div>
             </a>
             <div class="contact-info-item">
@@ -571,8 +577,8 @@
                     </svg>
                 </div>
                 <div class="contact-info-text">
-                    <span class="contact-info-label">Dirección</span>
-                    <span class="contact-info-value">Barranquilla, Colombia</span>
+                    <span class="contact-info-label" data-i18n="contact_location_label">Dirección</span>
+                    <span class="contact-info-value" data-i18n="contact_location_value">Barranquilla, Colombia</span>
                 </div>
             </div>        </div>
     </div>
