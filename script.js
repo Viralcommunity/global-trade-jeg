@@ -454,3 +454,110 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
     document.querySelectorAll('[data-count]').forEach(el => statsObserver.observe(el));
 })();
+
+// ============================
+// GRADUAL BLUR
+// Component based on concept by github.com/ansh-dhanani
+// Adapted to vanilla JS for Global Trade JEG
+// ============================
+function createGradualBlur(container, options) {
+    var settings = Object.assign({
+        position:    'bottom',
+        height:      '7rem',
+        strength:    2,
+        divCount:    5,
+        curve:       'bezier',
+        exponential: false,
+        opacity:     1
+    }, options);
+
+    // Ensure the container is positioned so absolute children work
+    var pos = window.getComputedStyle(container).position;
+    if (pos === 'static') container.style.position = 'relative';
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'gradual-blur gradual-blur--' + settings.position;
+    wrapper.style.height = settings.height;
+    wrapper.style.opacity = settings.opacity;
+
+    var inner = document.createElement('div');
+    inner.className = 'gradual-blur-inner';
+
+    var count = settings.divCount;
+
+    for (var i = 0; i < count; i++) {
+        // step goes 0→1; for 'top' position we reverse so blur is max at top
+        var step = settings.position === 'top'
+            ? 1 - (i / (count - 1))
+            : i / (count - 1);
+
+        // Apply curve
+        var t;
+        if (settings.exponential) {
+            t = step * step;
+        } else if (settings.curve === 'bezier') {
+            t = step * step * (3 - 2 * step); // smoothstep
+        } else {
+            t = step; // linear
+        }
+
+        var blurPx = t * settings.strength;
+
+        var layer = document.createElement('div');
+        layer.style.top    = ((i / count) * 100) + '%';
+        layer.style.height = (100 / count) + '%';
+        layer.style.backdropFilter       = 'blur(' + blurPx + 'px)';
+        layer.style.webkitBackdropFilter = 'blur(' + blurPx + 'px)';
+
+        inner.appendChild(layer);
+    }
+
+    wrapper.appendChild(inner);
+    container.appendChild(wrapper);
+    return wrapper;
+}
+
+// Apply GradualBlur to site sections
+(function () {
+    // Hero — blur at the bottom to ease the transition to the trust bar
+    var hero = document.querySelector('.hero');
+    if (hero) {
+        createGradualBlur(hero, {
+            position:    'bottom',
+            height:      '9rem',
+            strength:    2,
+            divCount:    5,
+            curve:       'bezier',
+            exponential: true,
+            opacity:     1
+        });
+    }
+
+    // Why-Us / Services — blur at the bottom of the cards grid
+    var whyUs = document.querySelector('.why-us');
+    if (whyUs) {
+        createGradualBlur(whyUs, {
+            position:    'bottom',
+            height:      '6rem',
+            strength:    1.5,
+            divCount:    5,
+            curve:       'bezier',
+            exponential: false,
+            opacity:     0.9
+        });
+    }
+
+    // Plans — blur at the bottom of the pricing grid
+    var plans = document.querySelector('.services');
+    if (plans) {
+        createGradualBlur(plans, {
+            position:    'bottom',
+            height:      '6rem',
+            strength:    1.5,
+            divCount:    5,
+            curve:       'bezier',
+            exponential: false,
+            opacity:     0.9
+        });
+    }
+})();
