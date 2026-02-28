@@ -397,6 +397,30 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ============================
+// CONTACT FORM HANDLER
+// ============================
+(function () {
+    const form = document.getElementById('contactForm');
+    if (!form) return;
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const btn = form.querySelector('.contact-submit');
+        btn.disabled = true;
+        btn.textContent = 'Enviando…';
+        setTimeout(() => {
+            form.reset();
+            btn.textContent = 'Enviar Mensaje →';
+            btn.disabled = false;
+            const success = document.getElementById('formSuccess');
+            if (success) {
+                success.classList.add('visible');
+                setTimeout(() => success.classList.remove('visible'), 5000);
+            }
+        }, 800);
+    });
+})();
+
+// ============================
 // STAT COUNTER ANIMATION
 // ============================
 (function () {

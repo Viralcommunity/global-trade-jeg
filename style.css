@@ -1186,6 +1186,164 @@ section { padding: 7rem 2.5rem; }
 }
 
 /* ============================
+   CONTACT SECTION
+   ============================ */
+.contact-section {
+    background: var(--bg-mid);
+}
+
+.contact-form-wrapper {
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+.contact-form-header {
+    text-align: center;
+    margin-bottom: 2.8rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-2);
+    letter-spacing: 0.2px;
+}
+
+.form-group input,
+.form-group textarea {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.85rem 1.1rem;
+    color: var(--text-1);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
+    outline: none;
+    resize: vertical;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: var(--text-3);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: rgba(255, 179, 13, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 179, 13, 0.08);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.contact-submit {
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.4rem;
+}
+
+.contact-form-success {
+    display: none;
+    text-align: center;
+    padding: 1rem 1.4rem;
+    background: rgba(255, 179, 13, 0.1);
+    border: 1px solid rgba(255, 179, 13, 0.3);
+    border-radius: var(--radius-sm);
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.contact-form-success.visible {
+    display: block;
+}
+
+.contact-info-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+    margin-top: 2.8rem;
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.4rem 1.2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: all 0.3s var(--transition);
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-info-item:hover {
+    border-color: var(--border-hov);
+    background: var(--gold-pale);
+    transform: translateY(-3px);
+}
+
+.contact-info-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--gold-pale);
+    border: 1px solid rgba(255, 179, 13, 0.2);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+}
+
+.contact-info-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.contact-info-label {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--text-3);
+    font-weight: 700;
+}
+
+.contact-info-value {
+    font-size: 0.85rem;
+    color: var(--text-2);
+    font-weight: 500;
+    line-height: 1.4;
+    word-break: break-word;
+}
+
+a.contact-info-item .contact-info-value {
+    color: var(--gold);
+}
+
+/* ============================
    FOOTER
    ============================ */
 footer {
@@ -1364,6 +1522,9 @@ footer {
     .why-grid { grid-template-columns: 1fr; }
 
     .whatsapp-float { bottom: 1.5rem; right: 1.5rem; }
+
+    .form-row { grid-template-columns: 1fr; }
+    .contact-info-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 480px) {
