@@ -491,19 +491,391 @@
     </div>
 </section>
 
-<!-- ═══════════ CTA ═══════════ -->
-<section class="cta-section" id="contacto">
-    <div class="section-container reveal">
-        <span class="section-label" data-i18n="cta_label">¿Listo para dar el siguiente paso?</span>
-        <h2 data-i18n="cta_title" data-i18n-html="true">
-            Lleve su comercio exterior<br>al <em>siguiente nivel.</em>
-        </h2>
-        <p data-i18n="cta_desc">
-            Agende una consulta estratégica sin compromiso. Analizamos su operación y le mostramos exactamente cómo podemos optimizar sus resultados internacionales.
-        </p>
-        <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
-            <a href="mailto:contacto@globaltradejeg.com" class="btn-primary" data-i18n="cta_btn1">Agendar Consulta Estratégica →</a>
-            <a href="https://wa.me/" class="btn-secondary" data-i18n="cta_btn2">WhatsApp Directo</a>
+<!-- ═══════════ CONTACT FORM ═══════════ -->
+<section class="contact-section" id="contacto">
+    <div class="section-container">
+        <div class="contact-grid">
+
+            <!-- ── Left: SVG Trade Map + Info ── -->
+            <div class="contact-visual reveal">
+                <div class="contact-svg-wrapper">
+                    <svg viewBox="0 0 620 420" xmlns="http://www.w3.org/2000/svg" class="trade-map-svg" aria-label="Mapa de rutas de comercio global">
+                        <defs>
+                            <linearGradient id="mapBg" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%"   stop-color="#000D30"/>
+                                <stop offset="100%" stop-color="#001A55"/>
+                            </linearGradient>
+                            <radialGradient id="glowGold" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%"   stop-color="#FFB30D" stop-opacity="0.6"/>
+                                <stop offset="100%" stop-color="#FFB30D" stop-opacity="0"/>
+                            </radialGradient>
+                            <radialGradient id="glowCyan" cx="50%" cy="50%" r="50%">
+                                <stop offset="0%"   stop-color="#00cfbe" stop-opacity="0.6"/>
+                                <stop offset="100%" stop-color="#00cfbe" stop-opacity="0"/>
+                            </radialGradient>
+                            <filter id="nodeglow" x="-80%" y="-80%" width="260%" height="260%">
+                                <feGaussianBlur stdDeviation="4" result="blur"/>
+                                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                            </filter>
+                            <style>
+                                .rt { stroke-dasharray: 10 5; animation: dash 4s linear infinite; }
+                                .rt2{ stroke-dasharray: 10 5; animation: dash 5s linear infinite reverse; }
+                                .rt3{ stroke-dasharray: 6 4;  animation: dash 6s linear infinite; }
+                                @keyframes dash { to { stroke-dashoffset: -90; } }
+                                .nd { animation: pulse 2.4s ease-in-out infinite; }
+                                .nd2{ animation: pulse 2.4s ease-in-out infinite 0.8s; }
+                                .nd3{ animation: pulse 2.4s ease-in-out infinite 1.6s; }
+                                @keyframes pulse {
+                                    0%,100%{ opacity:1; r:5; }
+                                    50%    { opacity:0.5; r:8; }
+                                }
+                                .plane { animation: fly 8s linear infinite; }
+                                @keyframes fly {
+                                    0%   { transform: translate(188px,152px) rotate(-35deg); opacity:0; }
+                                    10%  { opacity:1; }
+                                    90%  { opacity:1; }
+                                    100% { transform: translate(310px,90px) rotate(-35deg); opacity:0; }
+                                }
+                                .ship1 { animation: sail1 10s linear infinite; }
+                                @keyframes sail1 {
+                                    0%  { transform: translate(115px,108px); opacity:0; }
+                                    8%  { opacity:1; }
+                                    92% { opacity:1; }
+                                    100%{ transform: translate(255px,72px); opacity:0; }
+                                }
+                                .ship2 { animation: sail2 12s linear infinite 3s; }
+                                @keyframes sail2 {
+                                    0%  { transform: translate(360px,108px); opacity:0; }
+                                    8%  { opacity:1; }
+                                    92% { opacity:1; }
+                                    100%{ transform: translate(450px,118px); opacity:0; }
+                                }
+                            </style>
+                        </defs>
+
+                        <!-- Background -->
+                        <rect width="620" height="420" fill="url(#mapBg)" rx="16"/>
+
+                        <!-- Grid (lat/lon lines) -->
+                        <g stroke="rgba(255,255,255,0.04)" stroke-width="1">
+                            <line x1="0" y1="70"  x2="620" y2="70"/>
+                            <line x1="0" y1="140" x2="620" y2="140"/>
+                            <line x1="0" y1="210" x2="620" y2="210"/>
+                            <line x1="0" y1="280" x2="620" y2="280"/>
+                            <line x1="0" y1="350" x2="620" y2="350"/>
+                            <line x1="80"  y1="0" x2="80"  y2="420"/>
+                            <line x1="160" y1="0" x2="160" y2="420"/>
+                            <line x1="240" y1="0" x2="240" y2="420"/>
+                            <line x1="310" y1="0" x2="310" y2="420"/>
+                            <line x1="390" y1="0" x2="390" y2="420"/>
+                            <line x1="470" y1="0" x2="470" y2="420"/>
+                            <line x1="550" y1="0" x2="550" y2="420"/>
+                        </g>
+
+                        <!-- ── CONTINENTS (simplified outlines) ── -->
+                        <!-- North America -->
+                        <path d="M52,48 L85,40 L118,46 L138,62 L148,90 L142,118 L128,138
+                                 L108,152 L88,158 L72,168 L62,158 L50,138 L44,110 L46,80 Z"
+                              fill="rgba(0,79,160,0.35)" stroke="rgba(59,130,246,0.4)" stroke-width="1.2"/>
+                        <!-- Central America bridge -->
+                        <path d="M108,152 L100,162 L98,172 L102,178" fill="none" stroke="rgba(59,130,246,0.3)" stroke-width="1"/>
+                        <!-- South America -->
+                        <path d="M102,178 L124,172 L140,182 L150,202 L148,232 L138,258
+                                 L122,272 L104,278 L88,272 L78,252 L76,228 L84,204 L96,186 Z"
+                              fill="rgba(0,79,160,0.35)" stroke="rgba(59,130,246,0.4)" stroke-width="1.2"/>
+                        <!-- Europe -->
+                        <path d="M244,44 L268,38 L296,42 L314,54 L318,68 L310,82
+                                 L292,90 L272,88 L252,78 L242,62 Z"
+                              fill="rgba(0,79,160,0.35)" stroke="rgba(59,130,246,0.4)" stroke-width="1.2"/>
+                        <!-- Africa -->
+                        <path d="M254,100 L284,94 L310,100 L322,122 L322,158 L312,188
+                                 L294,206 L272,210 L250,202 L238,180 L234,152 L238,122 Z"
+                              fill="rgba(0,79,160,0.35)" stroke="rgba(59,130,246,0.4)" stroke-width="1.2"/>
+                        <!-- Asia (broad) -->
+                        <path d="M324,38 L380,32 L430,38 L472,50 L488,70 L480,96
+                                 L456,112 L422,118 L388,112 L352,100 L326,82 L316,60 Z"
+                              fill="rgba(0,79,160,0.35)" stroke="rgba(59,130,246,0.4)" stroke-width="1.2"/>
+                        <!-- SE Asia peninsula -->
+                        <path d="M456,112 L464,130 L458,148 L448,158 L442,148 L446,130 Z"
+                              fill="rgba(0,79,160,0.3)" stroke="rgba(59,130,246,0.35)" stroke-width="1"/>
+                        <!-- Australia -->
+                        <path d="M462,220 L494,212 L516,222 L520,248 L506,264 L480,268
+                                 L460,258 L452,240 Z"
+                              fill="rgba(0,79,160,0.35)" stroke="rgba(59,130,246,0.4)" stroke-width="1.2"/>
+
+                        <!-- ── TRADE ROUTES ── -->
+                        <!-- Colombia → Rotterdam -->
+                        <path d="M114,190 Q200,120 272,76" class="rt"
+                              fill="none" stroke="#FFB30D" stroke-width="1.6" stroke-opacity="0.75"/>
+                        <!-- Rotterdam → Shanghai -->
+                        <path d="M304,72 Q390,48 462,118" class="rt"
+                              fill="none" stroke="#00cfbe" stroke-width="1.6" stroke-opacity="0.75"/>
+                        <!-- Colombia → New York -->
+                        <path d="M110,192 Q100,150 110,118" class="rt2"
+                              fill="none" stroke="#3b82f6" stroke-width="1.4" stroke-opacity="0.7"/>
+                        <!-- New York → Rotterdam -->
+                        <path d="M120,108 Q190,62 262,72" class="rt"
+                              fill="none" stroke="#00cfbe" stroke-width="1.4" stroke-opacity="0.65"/>
+                        <!-- Shanghai → Sydney -->
+                        <path d="M468,126 Q500,180 492,234" class="rt3"
+                              fill="none" stroke="#3b82f6" stroke-width="1.4" stroke-opacity="0.65"/>
+                        <!-- Africa → Europe -->
+                        <path d="M286,102 Q282,90 280,82" class="rt2"
+                              fill="none" stroke="#FFB30D" stroke-width="1.3" stroke-opacity="0.6"/>
+                        <!-- SA → Africa -->
+                        <path d="M138,240 Q200,230 242,200" class="rt3"
+                              fill="none" stroke="#3b82f6" stroke-width="1.3" stroke-opacity="0.6"/>
+                        <!-- Pacific route NA → Asia (long arc) -->
+                        <path d="M130,100 Q310,10 440,80" class="rt"
+                              fill="none" stroke="rgba(255,179,13,0.3)" stroke-width="1.2"/>
+
+                        <!-- ── PORT NODES ── -->
+                        <!-- Colombia / Barranquilla (GOLD HIGHLIGHT) -->
+                        <circle cx="110" cy="192" r="18" fill="url(#glowGold)" opacity="0.9"/>
+                        <circle cx="110" cy="192" r="7" fill="#FFB30D" class="nd" filter="url(#nodeglow)"/>
+                        <text x="122" y="186" fill="#FFB30D" font-size="7.5" font-family="Inter" font-weight="700">Barranquilla</text>
+
+                        <!-- New York -->
+                        <circle cx="120" cy="110" r="14" fill="url(#glowCyan)" opacity="0.8"/>
+                        <circle cx="120" cy="110" r="5" fill="#00cfbe" class="nd2" filter="url(#nodeglow)"/>
+                        <text x="130" y="108" fill="#94a3b8" font-size="6.5" font-family="Inter">New York</text>
+
+                        <!-- Rotterdam -->
+                        <circle cx="272" cy="76" r="14" fill="url(#glowCyan)" opacity="0.8"/>
+                        <circle cx="272" cy="76" r="5" fill="#00cfbe" class="nd3" filter="url(#nodeglow)"/>
+                        <text x="280" y="74" fill="#94a3b8" font-size="6.5" font-family="Inter">Rotterdam</text>
+
+                        <!-- Shanghai -->
+                        <circle cx="468" cy="120" r="14" fill="url(#glowCyan)" opacity="0.8"/>
+                        <circle cx="468" cy="120" r="5" fill="#00cfbe" class="nd" filter="url(#nodeglow)"/>
+                        <text x="476" y="118" fill="#94a3b8" font-size="6.5" font-family="Inter">Shanghai</text>
+
+                        <!-- Santos/Brazil -->
+                        <circle cx="132" cy="242" r="10" fill="url(#glowCyan)" opacity="0.7"/>
+                        <circle cx="132" cy="242" r="4" fill="#3b82f6" class="nd2"/>
+                        <text x="140" y="240" fill="#94a3b8" font-size="6" font-family="Inter">Santos</text>
+
+                        <!-- Durban/Africa -->
+                        <circle cx="278" cy="200" r="10" fill="url(#glowCyan)" opacity="0.7"/>
+                        <circle cx="278" cy="200" r="4" fill="#3b82f6" class="nd3"/>
+
+                        <!-- Sydney -->
+                        <circle cx="490" cy="242" r="10" fill="url(#glowCyan)" opacity="0.7"/>
+                        <circle cx="490" cy="242" r="4" fill="#00cfbe" class="nd"/>
+                        <text x="498" y="240" fill="#94a3b8" font-size="6" font-family="Inter">Sydney</text>
+
+                        <!-- Hamburg -->
+                        <circle cx="258" cy="56" r="8" fill="url(#glowCyan)" opacity="0.6"/>
+                        <circle cx="258" cy="56" r="3.5" fill="#00cfbe" class="nd2"/>
+
+                        <!-- Singapore -->
+                        <circle cx="454" cy="152" r="9" fill="url(#glowCyan)" opacity="0.7"/>
+                        <circle cx="454" cy="152" r="4" fill="#3b82f6" class="nd3"/>
+                        <text x="460" y="150" fill="#94a3b8" font-size="6" font-family="Inter">Singapore</text>
+
+                        <!-- ── MOVING CARGO SHIP 1 (Colombia → Rotterdam) ── -->
+                        <g class="ship1">
+                            <rect x="-10" y="-4" width="20" height="8" rx="2" fill="#FFB30D" opacity="0.9"/>
+                            <rect x="-6"  y="-10" width="12" height="7" rx="1" fill="#FFB30D" opacity="0.7"/>
+                            <rect x="-4"  y="-4" width="3" height="4" fill="rgba(0,13,48,0.5)"/>
+                            <rect x="1"   y="-4" width="3" height="4" fill="rgba(0,13,48,0.5)"/>
+                        </g>
+
+                        <!-- ── MOVING CARGO SHIP 2 (Rotterdam → Shanghai) ── -->
+                        <g class="ship2">
+                            <rect x="-10" y="-4" width="20" height="8" rx="2" fill="#00cfbe" opacity="0.9"/>
+                            <rect x="-6"  y="-10" width="12" height="7" rx="1" fill="#00cfbe" opacity="0.7"/>
+                            <rect x="-4"  y="-4" width="3" height="4" fill="rgba(0,13,48,0.5)"/>
+                            <rect x="1"   y="-4" width="3" height="4" fill="rgba(0,13,48,0.5)"/>
+                        </g>
+
+                        <!-- ── MOVING PLANE ── -->
+                        <g class="plane">
+                            <path d="M0,-7 L4,3 L0,0 L-4,3 Z" fill="#FFB30D" opacity="0.95"/>
+                            <line x1="-7" y1="1" x2="7" y2="1" stroke="#FFB30D" stroke-width="2.5" opacity="0.8"/>
+                            <line x1="-3" y1="5" x2="3" y2="5" stroke="#FFB30D" stroke-width="1.5" opacity="0.6"/>
+                        </g>
+
+                        <!-- ── STACKED CONTAINERS (bottom-right) ── -->
+                        <g transform="translate(528,300)">
+                            <text x="28" y="-4" fill="rgba(255,255,255,0.3)" font-size="6" font-family="Inter" text-anchor="middle" letter-spacing="1">CONTAINERS</text>
+                            <!-- Row 2 -->
+                            <rect x="0"  y="0"  width="26" height="16" rx="2" fill="rgba(0,79,160,0.5)" stroke="#00cfbe" stroke-width="0.8"/>
+                            <rect x="28" y="0"  width="26" height="16" rx="2" fill="rgba(0,79,160,0.5)" stroke="#FFB30D" stroke-width="0.8"/>
+                            <!-- Row 1 -->
+                            <rect x="0"  y="18" width="26" height="16" rx="2" fill="rgba(0,79,160,0.5)" stroke="#FFB30D" stroke-width="0.8"/>
+                            <rect x="28" y="18" width="26" height="16" rx="2" fill="rgba(0,79,160,0.5)" stroke="#3b82f6" stroke-width="0.8"/>
+                            <!-- Lines on containers -->
+                            <line x1="13" y1="0"  x2="13" y2="16" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+                            <line x1="41" y1="0"  x2="41" y2="16" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+                            <line x1="13" y1="18" x2="13" y2="34" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+                            <line x1="41" y1="18" x2="41" y2="34" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+                        </g>
+
+                        <!-- ── STATS CARD (bottom-left) ── -->
+                        <rect x="14" y="298" width="148" height="110" rx="10"
+                              fill="rgba(0,13,48,0.88)" stroke="rgba(255,179,13,0.2)" stroke-width="1"/>
+                        <text x="26" y="316" fill="#FFB30D" font-size="8.5" font-family="Inter" font-weight="700" letter-spacing="0.8">GLOBAL TRADE JEG</text>
+                        <line x1="26" y1="322" x2="150" y2="322" stroke="rgba(255,179,13,0.2)" stroke-width="0.7"/>
+
+                        <text x="26" y="338" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Inter">Países con experiencia</text>
+                        <text x="152" y="338" fill="#fff" font-size="8" font-family="Inter" font-weight="700" text-anchor="end">140+</text>
+                        <line x1="26" y1="344" x2="152" y2="344" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+
+                        <text x="26" y="358" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Inter">Años de historia naviera</text>
+                        <text x="152" y="358" fill="#fff" font-size="8" font-family="Inter" font-weight="700" text-anchor="end">175+</text>
+                        <line x1="26" y1="364" x2="152" y2="364" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+
+                        <text x="26" y="378" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Inter">Naviera más grande</text>
+                        <text x="152" y="378" fill="#FFB30D" font-size="8" font-family="Inter" font-weight="700" text-anchor="end">Top 5 global</text>
+                        <line x1="26" y1="384" x2="152" y2="384" stroke="rgba(255,255,255,0.06)" stroke-width="0.5"/>
+
+                        <text x="26" y="398" fill="rgba(255,255,255,0.45)" font-size="7" font-family="Inter">Outsourcing estratégico</text>
+                        <text x="152" y="398" fill="#00cfbe" font-size="8" font-family="Inter" font-weight="700" text-anchor="end">Colombia</text>
+
+                        <!-- Decorative corner arcs -->
+                        <path d="M590,0 A30,30 0 0 1 620,30" fill="none" stroke="rgba(255,179,13,0.12)" stroke-width="1"/>
+                        <path d="M580,0 A40,40 0 0 1 620,40" fill="none" stroke="rgba(255,179,13,0.07)" stroke-width="1"/>
+                        <path d="M0,390 A30,30 0 0 0 30,420" fill="none" stroke="rgba(0,207,190,0.12)" stroke-width="1"/>
+                    </svg>
+                </div>
+
+                <!-- Info blocks below the SVG -->
+                <div class="contact-info-cards">
+                    <a href="mailto:contacto@globaltradejeg.com" class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="contact-info-label">Email</p>
+                            <p class="contact-info-value">contacto@globaltradejeg.com</p>
+                        </div>
+                    </a>
+                    <a href="https://wa.me/" class="contact-info-item" target="_blank" rel="noopener">
+                        <div class="contact-info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="contact-info-label">WhatsApp</p>
+                            <p class="contact-info-value">Contacto directo</p>
+                        </div>
+                    </a>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p class="contact-info-label">Ubicación</p>
+                            <p class="contact-info-value">Barranquilla, Colombia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ── Right: Contact Form ── -->
+            <div class="contact-form-wrapper reveal">
+                <span class="section-label" data-i18n="cta_label">¿Listo para dar el siguiente paso?</span>
+                <h2 class="contact-form-title" data-i18n="cta_title" data-i18n-html="true">
+                    Solicite su<br><em>Consulta Estratégica</em>
+                </h2>
+                <p class="contact-form-desc" data-i18n="cta_desc">
+                    Complete el formulario y nuestro equipo se comunicará con usted a la brevedad. Diagnóstico inicial sin costo.
+                </p>
+
+                <form class="contact-form" id="contactForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cf-nombre">Nombre completo <span class="req">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                <input type="text" id="cf-nombre" name="nombre" placeholder="Su nombre completo" required autocomplete="name"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cf-empresa">Empresa <span class="req">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="2" y="7" width="20" height="14" rx="2"/>
+                                    <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
+                                </svg>
+                                <input type="text" id="cf-empresa" name="empresa" placeholder="Nombre de su empresa" required autocomplete="organization"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cf-email">Email <span class="req">*</span></label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                                <input type="email" id="cf-email" name="email" placeholder="correo@empresa.com" required autocomplete="email"/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cf-telefono">Teléfono</label>
+                            <div class="input-wrapper">
+                                <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                                <input type="tel" id="cf-telefono" name="telefono" placeholder="+57 300 000 0000" autocomplete="tel"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cf-servicio">Servicio de interés <span class="req">*</span></label>
+                        <div class="input-wrapper select-wrapper">
+                            <svg class="input-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                            <select id="cf-servicio" name="servicio" required>
+                                <option value="" disabled selected>Seleccione un servicio</option>
+                                <option value="basic">Plan Basic – Asesoría Estratégica (10 h/mes)</option>
+                                <option value="pro">Plan Pro – Dirección Continua (20 h/mes)</option>
+                                <option value="executive">Plan Executive – Director Externo (40 h/mes)</option>
+                                <option value="proyecto">Proyecto Especial a medida</option>
+                                <option value="capacitacion">Capacitación Empresarial</option>
+                                <option value="diagnostico">Diagnóstico Gratuito</option>
+                            </select>
+                            <svg class="select-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                <polyline points="6 9 12 15 18 9"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="cf-mensaje">Mensaje <span class="req">*</span></label>
+                        <textarea id="cf-mensaje" name="mensaje" rows="4" required
+                            placeholder="Cuéntenos sobre su operación internacional y en qué podemos ayudarle…"></textarea>
+                    </div>
+
+                    <button type="submit" class="form-submit-btn">
+                        <span>Enviar Solicitud</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                            <path d="M22 2L11 13M22 2L15 22l-4-9-9-4 19-7z"/>
+                        </svg>
+                    </button>
+
+                    <p class="form-privacy">
+                        Al enviar acepta nuestra <a href="#">Política de Privacidad</a>. Sus datos son estrictamente confidenciales.
+                    </p>
+                </form>
+            </div>
         </div>
     </div>
 </section>
