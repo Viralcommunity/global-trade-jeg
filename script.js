@@ -137,6 +137,28 @@ const translations = {
         cta_btn1: "Agendar Consulta Estratégica →",
         cta_btn2: "WhatsApp Directo",
 
+        // Contact Form
+        contact_label: "Escríbenos",
+        contact_title: "Cuéntenos sobre su operación",
+        contact_subtitle: "Complete el formulario y le responderemos en menos de 24 horas.",
+        form_name: "Nombre completo",
+        form_name_ph: "Su nombre completo",
+        form_company: "Empresa",
+        form_company_ph: "Nombre de su empresa",
+        form_email: "Correo electrónico",
+        form_email_ph: "su@correo.com",
+        form_message: "Mensaje",
+        form_message_ph: "Cuéntenos sobre su operación internacional...",
+        form_submit: "Enviar Mensaje →",
+        form_sending: "Enviando…",
+        form_success: "✓ ¡Mensaje enviado! Le responderemos pronto.",
+        contact_whatsapp_label: "WhatsApp",
+        contact_whatsapp_value: "Escríbanos directamente",
+        contact_email_label: "Correo electrónico",
+        contact_email_value: "hello@globaltradejeg.com",
+        contact_location_label: "Dirección",
+        contact_location_value: "Barranquilla, Colombia",
+
         // Footer
         footer_desc: "Outsourcing estratégico de comercio exterior para empresas que buscan crecer internacionalmente con respaldo, eficiencia y visión.",
         footer_services: "Servicios",
@@ -287,6 +309,28 @@ const translations = {
         cta_btn1: "Book a Strategic Consultation →",
         cta_btn2: "Direct WhatsApp",
 
+        // Contact Form
+        contact_label: "Contact Us",
+        contact_title: "Tell Us About Your Operation",
+        contact_subtitle: "Fill out the form and we'll respond within 24 hours.",
+        form_name: "Full Name",
+        form_name_ph: "Your full name",
+        form_company: "Company",
+        form_company_ph: "Your company name",
+        form_email: "Email Address",
+        form_email_ph: "your@email.com",
+        form_message: "Message",
+        form_message_ph: "Tell us about your international operations...",
+        form_submit: "Send Message →",
+        form_sending: "Sending…",
+        form_success: "✓ Message sent! We'll respond shortly.",
+        contact_whatsapp_label: "WhatsApp",
+        contact_whatsapp_value: "Message us directly",
+        contact_email_label: "Email Address",
+        contact_email_value: "hello@globaltradejeg.com",
+        contact_location_label: "Address",
+        contact_location_value: "Barranquilla, Colombia",
+
         // Footer
         footer_desc: "Strategic foreign trade outsourcing for companies looking to grow internationally with expertise, efficiency, and vision.",
         footer_services: "Services",
@@ -334,6 +378,11 @@ function switchLang(lang) {
                     el.textContent = text;
                 }
             }
+        });
+        document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+            const key = el.getAttribute('data-i18n-placeholder');
+            const text = translations[lang][key];
+            if (text) el.placeholder = text;
         });
         document.body.classList.remove('lang-switching');
     }, 220);
@@ -406,13 +455,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         e.preventDefault();
         const btn = form.querySelector('.contact-submit');
         btn.disabled = true;
-        btn.textContent = 'Enviando…';
+        btn.textContent = translations[currentLang].form_sending || 'Enviando…';
         setTimeout(() => {
             form.reset();
-            btn.textContent = 'Enviar Mensaje →';
+            btn.textContent = translations[currentLang].form_submit || 'Enviar Mensaje →';
             btn.disabled = false;
             const success = document.getElementById('formSuccess');
             if (success) {
+                success.textContent = translations[currentLang].form_success || '✓ ¡Mensaje enviado! Le responderemos pronto.';
                 success.classList.add('visible');
                 setTimeout(() => success.classList.remove('visible'), 5000);
             }
@@ -453,4 +503,111 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     }, { threshold: 0.5 });
 
     document.querySelectorAll('[data-count]').forEach(el => statsObserver.observe(el));
+})();
+
+// ============================
+// GRADUAL BLUR
+// Component based on concept by github.com/ansh-dhanani
+// Adapted to vanilla JS for Global Trade JEG
+// ============================
+function createGradualBlur(container, options) {
+    var settings = Object.assign({
+        position:    'bottom',
+        height:      '7rem',
+        strength:    2,
+        divCount:    5,
+        curve:       'bezier',
+        exponential: false,
+        opacity:     1
+    }, options);
+
+    // Ensure the container is positioned so absolute children work
+    var pos = window.getComputedStyle(container).position;
+    if (pos === 'static') container.style.position = 'relative';
+
+    var wrapper = document.createElement('div');
+    wrapper.className = 'gradual-blur gradual-blur--' + settings.position;
+    wrapper.style.height = settings.height;
+    wrapper.style.opacity = settings.opacity;
+
+    var inner = document.createElement('div');
+    inner.className = 'gradual-blur-inner';
+
+    var count = settings.divCount;
+
+    for (var i = 0; i < count; i++) {
+        // step goes 0→1; for 'top' position we reverse so blur is max at top
+        var step = settings.position === 'top'
+            ? 1 - (i / (count - 1))
+            : i / (count - 1);
+
+        // Apply curve
+        var t;
+        if (settings.exponential) {
+            t = step * step;
+        } else if (settings.curve === 'bezier') {
+            t = step * step * (3 - 2 * step); // smoothstep
+        } else {
+            t = step; // linear
+        }
+
+        var blurPx = t * settings.strength;
+
+        var layer = document.createElement('div');
+        layer.style.top    = ((i / count) * 100) + '%';
+        layer.style.height = (100 / count) + '%';
+        layer.style.backdropFilter       = 'blur(' + blurPx + 'px)';
+        layer.style.webkitBackdropFilter = 'blur(' + blurPx + 'px)';
+
+        inner.appendChild(layer);
+    }
+
+    wrapper.appendChild(inner);
+    container.appendChild(wrapper);
+    return wrapper;
+}
+
+// Apply GradualBlur to site sections
+(function () {
+    // Hero — blur at the bottom to ease the transition to the trust bar
+    var hero = document.querySelector('.hero');
+    if (hero) {
+        createGradualBlur(hero, {
+            position:    'bottom',
+            height:      '13rem',
+            strength:    10,
+            divCount:    7,
+            curve:       'bezier',
+            exponential: true,
+            opacity:     1
+        });
+    }
+
+    // Why-Us / Services — blur at the bottom of the cards grid
+    var whyUs = document.querySelector('.why-us');
+    if (whyUs) {
+        createGradualBlur(whyUs, {
+            position:    'bottom',
+            height:      '10rem',
+            strength:    8,
+            divCount:    7,
+            curve:       'bezier',
+            exponential: false,
+            opacity:     1
+        });
+    }
+
+    // Plans — blur at the bottom of the pricing grid
+    var plans = document.querySelector('.services');
+    if (plans) {
+        createGradualBlur(plans, {
+            position:    'bottom',
+            height:      '10rem',
+            strength:    8,
+            divCount:    7,
+            curve:       'bezier',
+            exponential: false,
+            opacity:     1
+        });
+    }
 })();

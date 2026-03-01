@@ -467,13 +467,19 @@ section { padding: 7rem 2.5rem; }
     font-size: 1rem;
     color: var(--text-2);
     max-width: 580px;
+    margin-left: auto;
+    margin-right: auto;
     line-height: 1.78;
 }
 
 /* ============================
    WHY US / SERVICES
    ============================ */
-.why-us { background: var(--bg); }
+.why-us { background: var(--bg); position: relative; overflow: hidden; }
+
+.why-us > .section-container > .reveal {
+    text-align: center;
+}
 
 .why-grid {
     display: grid;
@@ -691,6 +697,7 @@ section { padding: 7rem 2.5rem; }
 .services {
     background: var(--bg-mid);
     position: relative;
+    overflow: hidden;
 }
 
 .plans-grid {
@@ -822,6 +829,10 @@ section { padding: 7rem 2.5rem; }
    PROJECTS & TRAINING
    ============================ */
 .projects { background: var(--bg-deep); }
+
+.projects > .section-container > .reveal {
+    text-align: center;
+}
 
 .projects-flex {
     display: grid;
@@ -1186,6 +1197,74 @@ section { padding: 7rem 2.5rem; }
 }
 
 /* ============================
+   CTA SECTION
+   ============================ */
+.cta-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #000D30 0%, #001542 50%, #001A52 100%);
+    text-align: center;
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.cta-glow-orb {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+    pointer-events: none;
+}
+.cta-glow-left {
+    background: var(--gold);
+    top: -100px;
+    left: -120px;
+}
+.cta-glow-right {
+    background: #2563eb;
+    bottom: -100px;
+    right: -120px;
+}
+
+.cta-section .section-label {
+    display: inline-block;
+    margin-bottom: 1.2rem;
+}
+
+.cta-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800;
+    color: var(--text-1);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+    margin-bottom: 1.4rem;
+}
+
+.cta-section h2 em {
+    font-style: normal;
+    color: var(--gold);
+}
+
+.cta-section p {
+    max-width: 580px;
+    margin: 0 auto 2.6rem;
+    font-size: 1.02rem;
+    color: var(--text-2);
+    line-height: 1.75;
+}
+
+.cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ============================
    CONTACT SECTION
    ============================ */
 .contact-section {
@@ -1195,11 +1274,18 @@ section { padding: 7rem 2.5rem; }
 .contact-form-wrapper {
     max-width: 680px;
     margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 3rem;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
 }
 
 .contact-form-header {
     text-align: center;
-    margin-bottom: 2.8rem;
+    margin-bottom: 2.4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .contact-form {
@@ -1343,6 +1429,25 @@ a.contact-info-item .contact-info-value {
     color: var(--gold);
 }
 
+@media (max-width: 680px) {
+    .contact-form-wrapper {
+        padding: 2rem 1.4rem;
+    }
+    .cta-actions {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cta-section {
+        padding: 4rem 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .contact-info-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ============================
    FOOTER
    ============================ */
@@ -1436,6 +1541,47 @@ footer {
    ============================ */
 [data-i18n] { transition: opacity 0.2s ease; }
 .lang-switching [data-i18n] { opacity: 0; }
+
+/* ============================
+   GRADUAL BLUR COMPONENT
+   ============================ */
+.gradual-blur {
+    position: absolute;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+    z-index: 10;
+    isolation: isolate;
+}
+
+.gradual-blur--bottom { bottom: 0; }
+.gradual-blur--top    { top: 0; }
+
+.gradual-blur-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.gradual-blur-inner > div {
+    position: absolute;
+    left: 0;
+    right: 0;
+    -webkit-backdrop-filter: inherit;
+    backdrop-filter: inherit;
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(1px)) {
+    .gradual-blur--bottom .gradual-blur-inner > div {
+        background: linear-gradient(to top, var(--bg-deep), transparent);
+        opacity: 0.6;
+    }
+    .gradual-blur--top .gradual-blur-inner > div {
+        background: linear-gradient(to bottom, var(--bg-deep), transparent);
+        opacity: 0.6;
+    }
+}
 
 /* ============================
    SCROLL REVEAL ANIMATION
